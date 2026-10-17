@@ -1,0 +1,289 @@
+{
+  "genel": {
+    "firma": "Aytek Bilişim",
+    "kisi": "Aytekin Günel",
+    "telefon": "0 530 788 71 94",
+    "telefonLink": "+905307887194",
+    "epostalar": [
+      "aytekingunel@gmail.com",
+      "aytekingunel@msn.com"
+    ],
+    "konum": "Tuzla / İstanbul",
+    "fiyatBaslik": "Fiyat bilgisi için arayın",
+    "fiyatMetni": "İşletmenizin ihtiyacına göre kurulum, eğitim ve abonelik seçeneklerini telefonda birlikte belirleyelim.",
+    "altBilgi": "Küçük işletmeler için teklif, kasa, cari ve stok programları."
+  },
+  "anasayfa": {
+    "baslik": "Teklif, kasa, cari ve stok tek programda.",
+    "altBaslik": "Ticari Yönetim Sistemi, küçük işletmelerin günlük işini sadeleştirir: teklif hazırlarsınız, tahsilatı kasaya işlersiniz, cari bakiyeler ve stok kendiliğinden güncellenir.",
+    "fisBaslik": "Gün sonu",
+    "fisSatirlari": [
+      {
+        "ad": "Teklif ve proforma",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Cari hesaplar",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Kasa ve gün sonu (X / Z)",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Banka ve ekstre aktarma",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Stok, depo ve barkod",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Teknik servis",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Personel ve puantaj",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Hızlı satış (POS)",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Yapay zekâ asistanı",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Otomatik yedekleme",
+        "deger": "dahil"
+      }
+    ],
+    "fisToplam": "Tek program",
+    "secimBaslik": "Hangisi size uygun?",
+    "secimMetni": "İki program aynı modüllere sahiptir. Fark, kaç bilgisayarda kullanacağınızdır.",
+    "modullerBaslik": "Günlük işin tamamı",
+    "moduller": [
+      {
+        "ikon": "teklif",
+        "ad": "Teklif ve proforma",
+        "aciklama": "Kendi tasarımınızla teklif hazırlayın, PDF olarak gönderin, onaylanınca proformaya ve satışa çevirin."
+      },
+      {
+        "ikon": "cari",
+        "ad": "Cari hesaplar",
+        "aciklama": "Müşteri ve tedarikçi bakiyeleri, döviz cinsinden borç/alacak, ekstre ve tahsilat makbuzu."
+      },
+      {
+        "ikon": "kasa",
+        "ad": "Kasa ve gün sonu",
+        "aciklama": "Nakit, kart ve havale hareketleri; X raporu ile ara döküm, Z raporu ile gün kapanışı ve arşiv."
+      },
+      {
+        "ikon": "banka",
+        "ad": "Banka",
+        "aciklama": "Hesap hareketleri, virman ve bankadan indirdiğiniz ekstreyi programa aktarma."
+      },
+      {
+        "ikon": "stok",
+        "ad": "Stok ve depo",
+        "aciklama": "Ürün kartları, birden çok depo, transfer, sayım, kritik seviye uyarısı ve barkod etiketi."
+      },
+      {
+        "ikon": "servis",
+        "ad": "Teknik servis",
+        "aciklama": "Cihaz kabul, arıza ve durum takibi, servis formu yazdırma, tahsilatı kasaya işleme."
+      },
+      {
+        "ikon": "personel",
+        "ad": "Personel",
+        "aciklama": "Puantaj, mesai ve vardiya, izin takibi, maaş ve avans ödemeleri."
+      },
+      {
+        "ikon": "pos",
+        "ad": "Hızlı satış",
+        "aciklama": "Dokunmatik ekrana uygun satış ekranı, ürün tuşları, barkod okuyucu ve müşteri ekranı."
+      },
+      {
+        "ikon": "yz",
+        "ad": "Yapay zekâ asistanı",
+        "aciklama": "\"Geçen ay en çok kime satış yaptım?\" gibi sorularınızı kendi verilerinizden yanıtlar."
+      },
+      {
+        "ikon": "muhasebe",
+        "ad": "Muhasebeci paketi",
+        "aciklama": "Seçtiğiniz ayın ya da çeyreğin dökümleri tek klasörde, muhasebecinize göndermeye hazır."
+      },
+      {
+        "ikon": "yedek",
+        "ad": "Otomatik yedekleme",
+        "aciklama": "Her gün kendiliğinden yedek alır; tek tıkla geri yükleyebilirsiniz."
+      },
+      {
+        "ikon": "kullanici",
+        "ad": "Kullanıcılar ve yetkiler",
+        "aciklama": "Her çalışana kendi girişi; kâr, silme ve ayarlar gibi işlemler yetkiyle sınırlanır."
+      }
+    ]
+  },
+  "urunler": [
+    {
+      "kod": "tys",
+      "ad": "TYS",
+      "tamAd": "Ticari Yönetim Sistemi",
+      "slogan": "Tek bilgisayarda çalışan işletmeler için.",
+      "kisa": "Kurulumu birkaç dakika sürer, ayrı bir sunucu gerekmez. Veriler bilgisayarınızda tek bir dosyada durur ve her gün otomatik yedeklenir.",
+      "kimeUygun": "Programı tek bilgisayarda kullanacak dükkân, büro ve servisler",
+      "cizim": "tek",
+      "ozellikler": [
+        {
+          "baslik": "Kurulum ve kullanım",
+          "maddeler": [
+            "Tek kurulum dosyası, ek program gerekmez",
+            "Veriler bilgisayarınızda, internet olmadan çalışır",
+            "Her gün otomatik yedek, tek tıkla geri yükleme",
+            "Programın içinde adım adım yardım"
+          ]
+        },
+        {
+          "baslik": "Satış ve tahsilat",
+          "maddeler": [
+            "Teklif, proforma ve satış belgeleri",
+            "Cari bakiye, ekstre ve tahsilat makbuzu",
+            "Kasa, X ve Z raporu, gün sonu arşivi",
+            "Hızlı satış ekranı ve barkod okuyucu"
+          ]
+        },
+        {
+          "baslik": "Stok ve servis",
+          "maddeler": [
+            "Birden çok depo, transfer ve sayım",
+            "Barkod ve QR etiket yazdırma",
+            "Teknik servis kabul ve takip formu"
+          ]
+        }
+      ],
+      "gereksinimler": [
+        "Windows 10 veya Windows 11 (64 bit)",
+        ".NET Framework 4.8 (Windows'ta genellikle hazır gelir)",
+        "4 GB bellek, 500 MB boş disk",
+        "Yapay zekâ ve güncelleme için internet bağlantısı (isteğe bağlı)"
+      ],
+      "sss": [
+        {
+          "soru": "İnternet olmadan çalışır mı?",
+          "cevap": "Evet. Program ve verileriniz bilgisayarınızda durur. İnternet yalnızca güncelleme denetimi, lisans doğrulama ve online yapay zekâ için kullanılır."
+        },
+        {
+          "soru": "İleride ikinci bir bilgisayar eklersem ne olur?",
+          "cevap": "TYS SQL'e geçebilirsiniz. Mevcut verileriniz TYS SQL'e aktarılır; yeniden giriş yapmanız gerekmez."
+        },
+        {
+          "soru": "Verilerim nasıl yedekleniyor?",
+          "cevap": "Program her gün kendiliğinden yedek alır. Yedekleri istediğiniz klasöre ya da bir USB belleğe de alabilirsiniz."
+        }
+      ],
+      "gorseller": [],
+      "videolar": []
+    },
+    {
+      "kod": "tys-sql",
+      "ad": "TYS SQL",
+      "tamAd": "Ticari Yönetim Sistemi SQL",
+      "slogan": "Birden çok bilgisayarda aynı anda çalışan işletmeler için.",
+      "kisa": "Veriler bir sunucu bilgisayarda (MySQL veya MariaDB) durur; kasa, ofis ve depo bilgisayarları aynı verilerle aynı anda çalışır.",
+      "kimeUygun": "Kasada, ofiste ve depoda ayrı bilgisayarları olan işletmeler",
+      "cizim": "cok",
+      "ozellikler": [
+        {
+          "baslik": "Birden çok bilgisayar",
+          "maddeler": [
+            "Bütün terminaller aynı veritabanına bağlanır",
+            "Kasadaki satış ofiste anında görünür",
+            "İki kişi aynı kaydı düzenlerse kim, ne zaman değiştirdi gösterilir; kimse farkında olmadan diğerinin işini ezmez",
+            "Firma bilgileri, teklif tasarımı ve tanımlar bir kez girilir, bütün bilgisayarlarda geçerli olur"
+          ]
+        },
+        {
+          "baslik": "Satış ve tahsilat",
+          "maddeler": [
+            "Teklif, proforma ve satış belgeleri",
+            "Cari bakiye, ekstre ve tahsilat makbuzu",
+            "Kasa, X ve Z raporu, gün sonu arşivi",
+            "Hızlı satış ekranı ve barkod okuyucu"
+          ]
+        },
+        {
+          "baslik": "Güvenlik ve yedek",
+          "maddeler": [
+            "Kullanıcı girişi ve yetkiler bütün bilgisayarlarda aynı",
+            "Günlük otomatik yedek, günde bir kez",
+            "TYS'den verilerinizi aktarma sihirbazı"
+          ]
+        }
+      ],
+      "gereksinimler": [
+        "Windows 10 veya Windows 11 (64 bit), her bilgisayarda",
+        "Sunucu bilgisayarda MySQL 8.4 LTS veya MariaDB 11.4 LTS (ücretsiz)",
+        "Bilgisayarlar aynı yerel ağda (kablolu ya da Wi-Fi)",
+        ".NET Framework 4.8, 4 GB bellek"
+      ],
+      "sss": [
+        {
+          "soru": "Ayrı bir sunucu almam gerekiyor mu?",
+          "cevap": "Hayır. Gün boyu açık kalan bilgisayarlarınızdan biri sunucu olarak kullanılabilir. Kurulum kılavuzunda adım adım anlatılıyor."
+        },
+        {
+          "soru": "TYS'deki verilerimi taşıyabilir miyim?",
+          "cevap": "Evet. TYS SQL ilk açılışta TYS verilerinizi aktarma sihirbazı sunar; cariler, teklifler, kasa, stok ve diğer kayıtlarınız taşınır."
+        },
+        {
+          "soru": "Kaç bilgisayarda kullanabilirim?",
+          "cevap": "Her bilgisayarın lisansı ayrıca etkinleştirilir. İşletmenize uygun cihaz sayısını telefonda birlikte belirleyelim."
+        }
+      ],
+      "gorseller": [],
+      "videolar": []
+    }
+  ],
+  "indirmeler": [
+    {
+      "urun": "tys-sql",
+      "ad": "TYS SQL kurulum dosyası",
+      "aciklama": "Her zaman en son sürümü indirir. Sunucuda ve bütün terminallerde aynı dosya kurulur.",
+      "surum": "1.0.0",
+      "url": "https://github.com/ByHabit/TYS_SQL/releases/latest/download/TYS_SQL_Kurulum.exe",
+      "tur": "kurulum"
+    },
+    {
+      "urun": "tys-sql",
+      "ad": "Sunucu ve terminal kurulum kılavuzu",
+      "aciklama": "MySQL veya MariaDB kurulumu, güvenlik duvarı ve terminal bağlantısı; resimli anlatım.",
+      "surum": "",
+      "url": "indir/TYS_SQL_Kurulum_Kilavuzu.html",
+      "tur": "kilavuz"
+    },
+    {
+      "urun": "tys",
+      "ad": "TYS kurulum dosyası",
+      "aciklama": "Tek bilgisayar için kurulum dosyası.",
+      "surum": "",
+      "url": "",
+      "tur": "kurulum"
+    }
+  ],
+  "surumNotlari": [
+    {
+      "urun": "tys-sql",
+      "surum": "1.0.0",
+      "tarih": "2026-10",
+      "maddeler": [
+        "İlk sürüm: birden çok bilgisayarda MySQL / MariaDB ile çalışma",
+        "Aynı kaydı iki kişi düzenlerse uyarı",
+        "Ortak ayarlar: firma bilgileri ve tasarım bütün bilgisayarlarda aynı",
+        "Bütün listelerde yeni arama ve filtre çubuğu",
+        "TYS'den veri aktarma sihirbazı"
+      ]
+    }
+  ]
+}
