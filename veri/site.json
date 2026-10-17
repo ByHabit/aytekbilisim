@@ -285,5 +285,23 @@
         "TYS'den veri aktarma sihirbazı"
       ]
     }
-  ]
+  ],
+  "egitim": {
+    "baslik": "Eğitim merkezi",
+    "aciklama": "Kurulum ve kullanım anlatımları: videolar ve adım adım ekran görüntüleri.",
+    "kategoriler": [
+      "Kurulum",
+      "Başlarken",
+      "Teklif ve proforma",
+      "Cari hesaplar",
+      "Kasa ve gün sonu",
+      "Banka",
+      "Stok ve depo",
+      "Teknik servis",
+      "Personel",
+      "Hızlı satış",
+      "Ayarlar ve yedekleme"
+    ],
+    "icerikler": []
+  }
 }
