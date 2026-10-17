@@ -198,6 +198,60 @@ p { margin: 0 0 1em; max-width: 68ch; }
 .surumler ul { margin: 0; padding-left: 1.2rem; }
 .surumler ul li { margin: .25rem 0; }
 
+/* ── Eğitim merkezi ───────────────────────────────────── */
+.egitim-bolum { padding-top: 2.5rem; }
+.egitim-arac { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; margin-bottom: 1rem; }
+.egitim-ara { flex: 1 1 320px; display: flex; align-items: center; gap: .6rem; background: #fff; border: 1px solid var(--cizgi); border-radius: 10px; padding: 0 .9rem; }
+.egitim-ara:focus-within { border-color: var(--mavi); box-shadow: 0 0 0 3px rgba(47,140,255,.18); }
+.egitim-ara svg { width: 20px; height: 20px; color: var(--soluk); flex: none; }
+.egitim-ara input { border: 0; outline: none; font: inherit; padding: .75rem 0; width: 100%; background: transparent; color: var(--metin); }
+.egitim-urun select { font: inherit; padding: .7rem .9rem; border: 1px solid var(--cizgi); border-radius: 10px; background: #fff; color: var(--metin); }
+.egitim-sayi { color: var(--soluk); margin-left: auto; }
+.egitim-kategoriler { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+.egitim-kategoriler button { font: inherit; font-size: .95rem; padding: .4rem .9rem; border-radius: 999px; border: 1px solid var(--cizgi); background: #fff; color: var(--metin); cursor: pointer; }
+.egitim-kategoriler button:hover { border-color: var(--murekkep); }
+.egitim-kategoriler button[aria-pressed="true"] { background: var(--murekkep); border-color: var(--murekkep); color: #fff; }
+.egitim-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.4rem; }
+.egitim-kart { background: #fff; border: 1px solid var(--cizgi); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+.egitim-ac { display: block; padding: 0; border: 0; background: none; cursor: pointer; width: 100%; }
+.egitim-kapak { position: relative; display: block; aspect-ratio: 16 / 9; background: var(--murekkep); overflow: hidden; }
+.egitim-kapak img, .egitim-kapak video { width: 100%; height: 100%; object-fit: cover; }
+.oynat { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%; background: rgba(13,31,60,.82); box-shadow: 0 0 0 3px rgba(255,255,255,.85); }
+.oynat::after { content: ""; position: absolute; left: 23px; top: 18px; border-style: solid; border-width: 11px 0 11px 17px; border-color: transparent transparent transparent #fff; }
+.egitim-ac:hover .oynat { background: var(--mavi); }
+.egitim-metin { padding: 1rem 1.1rem 1.2rem; }
+.egitim-metin h3 { font-size: 1.08rem; margin: .5rem 0 .3rem; }
+.egitim-metin h3 a { color: var(--murekkep); text-decoration: none; }
+.egitim-metin h3 a:hover { color: var(--mavi-koyu); text-decoration: underline; }
+.egitim-metin p { margin: 0; color: var(--soluk); font-size: .95rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.etiketler { display: flex; flex-wrap: wrap; gap: .35rem; }
+.etiket { font-size: .8rem; font-weight: 500; padding: .1rem .55rem; border-radius: 6px; background: #EEF2F7; color: var(--soluk); }
+.etiket-kategori { background: #E8F1FF; color: var(--mavi-koyu); }
+.egitim-bos { color: var(--soluk); grid-column: 1 / -1; padding: 2rem 0; }
+
+.goruntuleyici { width: min(1100px, 96vw); max-height: 94vh; padding: 0; border: 0; border-radius: 16px; background: #fff; }
+.goruntuleyici::backdrop { background: rgba(8,16,32,.82); }
+.g-ic { position: relative; }
+.g-kapat { position: absolute; top: .6rem; right: .7rem; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(13,31,60,.75); color: #fff; font-size: 1.6rem; line-height: 1; cursor: pointer; }
+.g-medya { background: var(--murekkep); display: grid; place-items: center; }
+.g-medya img { max-height: 70vh; width: auto; max-width: 100%; }
+.g-medya.g-video { aspect-ratio: 16 / 9; }
+.g-medya iframe, .g-medya video { width: 100%; height: 100%; border: 0; }
+.g-alt { padding: 1.2rem 1.6rem 1.4rem; }
+.g-etiket { color: var(--mavi-koyu); font-size: .9rem; font-weight: 500; }
+.g-alt h2 { font-size: 1.35rem; margin: .3rem 0 .4rem; }
+.g-alt p { color: var(--soluk); white-space: pre-line; max-width: 80ch; }
+.g-gezinti { display: flex; align-items: center; gap: 1rem; margin-top: .8rem; }
+.g-gezinti button:disabled { opacity: .4; cursor: default; }
+.g-gezinti span { color: var(--soluk); }
+
+.egitim-bant { display: grid; grid-template-columns: auto 1fr auto; gap: 1.2rem; align-items: center; background: #fff; border: 1px solid var(--cizgi); border-radius: 16px; padding: 1.2rem 1.4rem; text-decoration: none; color: var(--metin); }
+.egitim-bant:hover { border-color: var(--mavi); color: var(--metin); }
+.egitim-bant b { font-family: var(--baslik); color: var(--murekkep); }
+.egitim-bant-simge { width: 48px; height: 48px; border-radius: 12px; background: #E8F1FF; color: var(--mavi-koyu); display: grid; place-items: center; }
+.egitim-bant-simge svg { width: 26px; height: 26px; }
+@media (max-width: 640px) { .egitim-bant { grid-template-columns: auto 1fr; } .egitim-bant .dugme { grid-column: 1 / -1; justify-self: start; } .egitim-sayi { margin-left: 0; } }
+
 /* ── İletişim ─────────────────────────────────────────── */
 .iletisim { display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; background: #fff; border: 1px solid var(--cizgi); border-radius: 22px; padding: 2.5rem; }
 .iletisim img { width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 10px 30px -10px rgba(13,31,60,.5); }

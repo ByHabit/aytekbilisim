@@ -33,7 +33,9 @@
     kilavuz: '<path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h9M9 8h5"/>',
     tel: '<path d="M6 3h3l1.5 4.5-2 1.5a12 12 0 0 0 6.5 6.5l1.5-2L21 15v3a3 3 0 0 1-3 3A16 16 0 0 1 3 6a3 3 0 0 1 3-3z"/>',
     eposta: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/>',
-    konum: '<path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>'
+    konum: '<path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+    ara: '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>',
+    egitim: '<path d="M3 8l9-4 9 4-9 4z"/><path d="M7 10v5c1.5 1.4 3.2 2 5 2s3.5-.6 5-2v-5M21 8v6"/>'
   };
   function simge(ad) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (SIMGE[ad] || SIMGE.teklif) + "</svg>";
@@ -71,7 +73,7 @@
   function ustMenu(g) {
     var sayfalar = [["index.html", "Ana sayfa", "ana"]]
       .concat((VERI.urunler || []).map(function (u) { return [urunAdres(u), u.ad, u.kod]; }))
-      .concat([["indir.html", "İndirme merkezi", "indir"], ["iletisim.html", "İletişim", "iletisim"]]);
+      .concat([["indir.html", "İndirme merkezi", "indir"], ["egitim.html", "Eğitim", "egitim"], ["iletisim.html", "İletişim", "iletisim"]]);
     var etkin = SAYFA === "urun" ? URUN : SAYFA;
     var m = sayfalar.map(function (s) {
       return '<li><a href="' + esc(s[0]) + '"' + (s[2] === etkin ? ' aria-current="page"' : "") + ">" + esc(s[1]) + "</a></li>";
@@ -89,7 +91,7 @@
     $("#alt").innerHTML =
       '<div class="kap"><div><h3>' + esc(g.firma) + "</h3><p>" + esc(g.altBilgi) + "</p></div>" +
       "<div><h3>Programlar</h3><ul>" + v.urunler.map(function (u) { return '<li><a href="' + esc(urunAdres(u)) + '">' + esc(u.tamAd) + "</a></li>"; }).join("") +
-      '<li><a href="indir.html">İndirme merkezi</a></li></ul></div>' +
+      '<li><a href="indir.html">İndirme merkezi</a></li><li><a href="egitim.html">Eğitim merkezi</a></li></ul></div>' +
       "<div><h3>İletişim</h3><ul><li>" + esc(g.kisi) + '</li><li><a href="tel:' + esc(g.telefonLink) + '">' + esc(g.telefon) + "</a></li>" + ep + "</ul></div>" +
       '<div class="telif">© ' + new Date().getFullYear() + " " + esc(g.firma) + "</div></div>";
   }
@@ -166,7 +168,7 @@
       '<div class="dugmeler"><a class="dugme dugme-ana" href="indir.html#' + esc(u.kod) + '">' + simge("indir") + esc(u.ad) + ' indir</a><a class="dugme dugme-hayalet" href="tel:' + esc(g.telefonLink) + '">' + simge("tel") + esc(g.telefon) + "</a></div></div>" +
       '<div class="secenek-cizim">' + cizim(u.cizim, true) + "</div></div></section>" +
       '<section class="bolum"><div class="kap"><div class="ozellikler">' + oz + "</div></div></section>" +
-      videolar + galeri +
+      egitimBandi(v, u) + videolar + galeri +
       '<section class="bolum" style="padding-top:0"><div class="kap iki-sutun"><div class="gereksinim"><h2 style="font-size:1.4rem">Sistem gereksinimleri</h2><ul>' +
       (u.gereksinimler || []).map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + '</ul></div><div class="sss"><h2 style="font-size:1.4rem">Sık sorulanlar</h2>' + sss + "</div></div></section>" +
       fiyatBandi(g);
@@ -178,6 +180,125 @@
         k.addEventListener("click", function () { k.remove(); }); document.body.appendChild(k);
       });
     });
+  }
+
+  function egitimIcerikleri(v) { return ((v.egitim && v.egitim.icerikler) || []).filter(function (x) { return x && x.adres && x.baslik; }); }
+
+  function egitimBandi(v, u) {
+    var n = egitimIcerikleri(v).filter(function (x) { return x.urun === u.kod || x.urun === "hepsi" || !x.urun; }).length;
+    if (!n) return "";
+    return '<section class="bolum" style="padding-top:0"><div class="kap"><a class="egitim-bant" href="egitim.html?urun=' + encodeURIComponent(u.kod) + '">' +
+      '<span class="egitim-bant-simge">' + simge("egitim") + "</span><span><b>Kurulum ve kullanım anlatımları</b><br>Eğitim merkezinde " + esc(u.ad) + " için " + n + " anlatım var.</span>" +
+      '<span class="dugme dugme-acik">Eğitim merkezine git</span></a></div></section>';
+  }
+
+  // ── Eğitim merkezi ────────────────────────────────────
+  function egitimSayfasi(v) {
+    var e = v.egitim || {}, hepsi = egitimIcerikleri(v);
+    hepsi.forEach(function (x, i) { if (!x.id) x.id = "i" + (i + 1); });
+    var q = new URLSearchParams(location.search);
+    var secim = { kategori: q.get("kategori") || "", urun: q.get("urun") || "", ara: "" };
+    var urunAdi = {}; v.urunler.forEach(function (u) { urunAdi[u.kod] = u.ad; });
+    var kategoriler = (e.kategoriler || []).filter(function (k) { return hepsi.some(function (x) { return x.kategori === k; }); });
+
+    function kapak(x) {
+      var yt = youtubeKimlik(x.adres);
+      if (yt) return '<img src="https://i.ytimg.com/vi/' + yt + '/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'"><span class="oynat" aria-hidden="true"></span>';
+      if (x.tur === "video") return '<video muted preload="metadata" src="' + esc(x.adres) + '#t=0.5"></video><span class="oynat" aria-hidden="true"></span>';
+      return '<img src="' + esc(x.adres) + '" alt="" loading="lazy">';
+    }
+    function uygunMu(x) {
+      if (secim.kategori && x.kategori !== secim.kategori) return false;
+      if (secim.urun && !(x.urun === secim.urun || x.urun === "hepsi" || !x.urun)) return false;
+      if (secim.ara) {
+        var t = (x.baslik + " " + (x.aciklama || "") + " " + (x.kategori || "")).toLocaleLowerCase("tr");
+        if (secim.ara.split(/\s+/).some(function (k) { return k && t.indexOf(k) < 0; })) return false;
+      }
+      return true;
+    }
+    var gorunen = [];
+    function listele() {
+      gorunen = hepsi.filter(uygunMu);
+      var l = $("#egitimListe");
+      $("#egitimSayi").textContent = gorunen.length === hepsi.length ? hepsi.length + " anlatım" : gorunen.length + " / " + hepsi.length + " anlatım";
+      if (!hepsi.length) { l.innerHTML = '<p class="egitim-bos">Henüz anlatım eklenmedi. Kurulum ve kullanım videoları yakında burada olacak.</p>'; return; }
+      if (!gorunen.length) { l.innerHTML = '<p class="egitim-bos">Bu seçimle eşleşen anlatım yok. Aramayı ya da kategoriyi değiştirin.</p>'; return; }
+      l.innerHTML = gorunen.map(function (x, i) {
+        var urunEt = x.urun && x.urun !== "hepsi" && urunAdi[x.urun] ? '<span class="etiket">' + esc(urunAdi[x.urun]) + "</span>" : "";
+        return '<article class="egitim-kart"><button type="button" class="egitim-ac" data-i="' + i + '" aria-label="' + esc(x.baslik) + ' anlatımını aç">' +
+          '<span class="egitim-kapak">' + kapak(x) + "</span></button>" +
+          '<div class="egitim-metin"><div class="etiketler">' + (x.kategori ? '<span class="etiket etiket-kategori">' + esc(x.kategori) + "</span>" : "") + urunEt + "</div>" +
+          '<h3><a href="#' + esc(x.id) + '" data-i="' + i + '" class="egitim-ac-baglanti">' + esc(x.baslik) + "</a></h3>" +
+          (x.aciklama ? "<p>" + esc(x.aciklama) + "</p>" : "") + "</div></article>";
+      }).join("");
+      Array.prototype.forEach.call(l.querySelectorAll("[data-i]"), function (b) {
+        b.addEventListener("click", function (ev) { ev.preventDefault(); ac(+b.getAttribute("data-i")); });
+      });
+    }
+
+    // Görüntüleyici
+    var dlg, simdiki = -1;
+    function medya(x) {
+      var yt = youtubeKimlik(x.adres);
+      if (yt) return '<iframe src="https://www.youtube-nocookie.com/embed/' + yt + '?rel=0&autoplay=1" title="' + esc(x.baslik) + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+      if (x.tur === "video") return '<video controls autoplay src="' + esc(x.adres) + '"></video>';
+      return '<img src="' + esc(x.adres) + '" alt="' + esc(x.baslik) + '">';
+    }
+    function ac(i) {
+      if (i < 0 || i >= gorunen.length) return;
+      simdiki = i; var x = gorunen[i];
+      $("#gMedya").innerHTML = medya(x);
+      $("#gMedya").className = "g-medya" + (youtubeKimlik(x.adres) || x.tur === "video" ? " g-video" : "");
+      $("#gBaslik").textContent = x.baslik;
+      $("#gAciklama").textContent = x.aciklama || "";
+      $("#gEtiket").textContent = [x.kategori, x.urun && x.urun !== "hepsi" ? urunAdi[x.urun] : ""].filter(Boolean).join("  |  ");
+      $("#gOnceki").disabled = i === 0; $("#gSonraki").disabled = i === gorunen.length - 1;
+      $("#gSira").textContent = (i + 1) + " / " + gorunen.length;
+      if (!dlg.open) dlg.showModal();
+      history.replaceState(null, "", "#" + x.id);
+    }
+    function kapat() { $("#gMedya").innerHTML = ""; if (dlg.open) dlg.close(); history.replaceState(null, "", location.pathname + location.search); }
+
+    $("#icerik").innerHTML =
+      '<section class="sayfa-baslik"><div class="kap"><h1>' + esc(e.baslik || "Eğitim merkezi") + "</h1><p>" + esc(e.aciklama || "") + "</p></div></section>" +
+      '<section class="bolum egitim-bolum"><div class="kap">' +
+      '<div class="egitim-arac"><label class="egitim-ara">' + simge("ara") + '<span class="gizli">Anlatımlarda ara</span><input type="search" id="egitimAra" placeholder="Anlatımlarda ara: kurulum, Z raporu, barkod…"></label>' +
+      '<label class="egitim-urun"><span class="gizli">Ürün</span><select id="egitimUrun"><option value="">Bütün ürünler</option>' +
+      v.urunler.map(function (u) { return '<option value="' + esc(u.kod) + '"' + (secim.urun === u.kod ? " selected" : "") + ">" + esc(u.ad) + "</option>"; }).join("") + "</select></label>" +
+      '<span class="egitim-sayi" id="egitimSayi" role="status"></span></div>' +
+      (kategoriler.length ? '<div class="egitim-kategoriler" role="group" aria-label="Kategori">' +
+        ['<button type="button" data-k="" aria-pressed="' + (!secim.kategori) + '">Tümü</button>'].concat(kategoriler.map(function (k) {
+          return '<button type="button" data-k="' + esc(k) + '" aria-pressed="' + (secim.kategori === k) + '">' + esc(k) + "</button>";
+        })).join("") + "</div>" : "") +
+      '<div class="egitim-liste" id="egitimListe"></div></div></section>' +
+      '<dialog class="goruntuleyici" id="goruntuleyici" aria-labelledby="gBaslik"><div class="g-ic">' +
+      '<button type="button" class="g-kapat" id="gKapat" aria-label="Kapat">&times;</button>' +
+      '<div class="g-medya" id="gMedya"></div><div class="g-alt"><div class="g-etiket" id="gEtiket"></div><h2 id="gBaslik"></h2><p id="gAciklama"></p>' +
+      '<div class="g-gezinti"><button type="button" class="dugme dugme-cizgi" id="gOnceki">Önceki</button><span id="gSira"></span><button type="button" class="dugme dugme-cizgi" id="gSonraki">Sonraki</button></div></div></div></dialog>';
+
+    dlg = $("#goruntuleyici");
+    $("#gKapat").addEventListener("click", kapat);
+    dlg.addEventListener("cancel", function (ev) { ev.preventDefault(); kapat(); });
+    dlg.addEventListener("click", function (ev) { if (ev.target === dlg) kapat(); });
+    $("#gOnceki").addEventListener("click", function () { ac(simdiki - 1); });
+    $("#gSonraki").addEventListener("click", function () { ac(simdiki + 1); });
+    dlg.addEventListener("keydown", function (ev) { if (ev.key === "ArrowLeft") ac(simdiki - 1); else if (ev.key === "ArrowRight") ac(simdiki + 1); });
+    $("#egitimAra").addEventListener("input", function () { secim.ara = this.value.trim().toLocaleLowerCase("tr"); listele(); });
+    $("#egitimUrun").addEventListener("change", function () { secim.urun = this.value; listele(); });
+    Array.prototype.forEach.call(document.querySelectorAll(".egitim-kategoriler button"), function (b) {
+      b.addEventListener("click", function () {
+        secim.kategori = b.getAttribute("data-k");
+        Array.prototype.forEach.call(document.querySelectorAll(".egitim-kategoriler button"), function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        listele();
+      });
+    });
+    listele();
+    // Paylaşılan bağlantı: egitim.html#kimlik doğrudan o anlatımı açar
+    if (location.hash) {
+      var id = decodeURIComponent(location.hash.slice(1));
+      secim.kategori = ""; secim.urun = ""; listele();
+      for (var k = 0; k < gorunen.length; k++) if (gorunen[k].id === id) { ac(k); break; }
+    }
   }
 
   // ── İndirme merkezi ───────────────────────────────────
@@ -227,7 +348,8 @@
       else if (SAYFA === "urun") urunSayfasi(v);
       else if (SAYFA === "indir") indirSayfasi(v);
       else if (SAYFA === "iletisim") iletisimSayfasi(v);
-      if (location.hash) { var h = document.getElementById(location.hash.slice(1)); if (h) h.scrollIntoView(); }
+      else if (SAYFA === "egitim") egitimSayfasi(v);
+      if (location.hash && SAYFA !== "egitim") { var h = document.getElementById(location.hash.slice(1)); if (h) h.scrollIntoView(); }
     })
     .catch(function (e) {
       $("#icerik").innerHTML = '<div class="kap durum-kutu"><h2>İçerik yüklenemedi</h2><p>veri/site.json okunamadı (' + esc(e.message) +

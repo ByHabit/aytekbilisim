@@ -267,8 +267,8 @@
       "urun": "tys",
       "ad": "TYS kurulum dosyası",
       "aciklama": "Tek bilgisayar için kurulum dosyası.",
-      "surum": "v4.14.1",
-      "url": "https://github.com/ByHabit/TYP/releases/latest/download/TYS_Kurulum.exe",
+      "surum": "",
+      "url": "",
       "tur": "kurulum"
     }
   ],
@@ -285,23 +285,5 @@
         "TYS'den veri aktarma sihirbazı"
       ]
     }
-  ],
-  "egitim": {
-    "baslik": "Eğitim merkezi",
-    "aciklama": "Kurulum ve kullanım anlatımları: videolar ve adım adım ekran görüntüleri.",
-    "kategoriler": [
-      "Kurulum",
-      "Başlarken",
-      "Teklif ve proforma",
-      "Cari hesaplar",
-      "Kasa ve gün sonu",
-      "Banka",
-      "Stok ve depo",
-      "Teknik servis",
-      "Personel",
-      "Hızlı satış",
-      "Ayarlar ve yedekleme"
-    ],
-    "icerikler": []
-  }
+  ]
 }
