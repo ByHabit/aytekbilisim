@@ -182,7 +182,9 @@
     });
   }
 
-  function egitimIcerikleri(v) { return ((v.egitim && v.egitim.icerikler) || []).filter(function (x) { return x && x.adres && x.baslik; }); }
+  // Başlığı olan her anlatım görünür; videosu ya da görseli olmayanlar yazılı anlatım olarak gösterilir
+  function egitimIcerikleri(v) { return ((v.egitim && v.egitim.icerikler) || []).filter(function (x) { return x && x.baslik; }); }
+  function surumYaz(s) { return String(s || "").trim().replace(/^v/i, ""); }
 
   function egitimBandi(v, u) {
     var n = egitimIcerikleri(v).filter(function (x) { return x.urun === u.kod || x.urun === "hepsi" || !x.urun; }).length;
@@ -202,6 +204,7 @@
     var kategoriler = (e.kategoriler || []).filter(function (k) { return hepsi.some(function (x) { return x.kategori === k; }); });
 
     function kapak(x) {
+      if (!x.adres) return '<span class="kapak-yazi">' + simge("egitim") + "<span>Yazılı anlatım</span></span>";
       var yt = youtubeKimlik(x.adres);
       if (yt) return '<img src="https://i.ytimg.com/vi/' + yt + '/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'"><span class="oynat" aria-hidden="true"></span>';
       if (x.tur === "video") return '<video muted preload="metadata" src="' + esc(x.adres) + '#t=0.5"></video><span class="oynat" aria-hidden="true"></span>';
@@ -239,6 +242,7 @@
     // Görüntüleyici
     var dlg, simdiki = -1;
     function medya(x) {
+      if (!x.adres) return "";
       var yt = youtubeKimlik(x.adres);
       if (yt) return '<iframe src="https://www.youtube-nocookie.com/embed/' + yt + '?rel=0&autoplay=1" title="' + esc(x.baslik) + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
       if (x.tur === "video") return '<video controls autoplay src="' + esc(x.adres) + '"></video>';
@@ -248,7 +252,8 @@
       if (i < 0 || i >= gorunen.length) return;
       simdiki = i; var x = gorunen[i];
       $("#gMedya").innerHTML = medya(x);
-      $("#gMedya").className = "g-medya" + (youtubeKimlik(x.adres) || x.tur === "video" ? " g-video" : "");
+      $("#gMedya").className = "g-medya" + (youtubeKimlik(x.adres) || (x.adres && x.tur === "video") ? " g-video" : "");
+      $("#gMedya").hidden = !x.adres;
       $("#gBaslik").textContent = x.baslik;
       $("#gAciklama").textContent = x.aciklama || "";
       $("#gEtiket").textContent = [x.kategori, x.urun && x.urun !== "hepsi" ? urunAdi[x.urun] : ""].filter(Boolean).join("  |  ");
@@ -309,14 +314,14 @@
         var dugme = d.url ? '<a class="dugme ' + (d.tur === "kurulum" ? "dugme-acik" : "dugme-cizgi") + '" href="' + esc(d.url) + '"' + (d.tur === "kurulum" ? "" : ' target="_blank" rel="noopener"') + ">" +
           (d.tur === "kurulum" ? "İndir" : "Aç") + "</a>" : '<span class="yakinda">Bağlantı yakında eklenecek</span>';
         return '<div class="indirme"><div class="indirme-simge">' + simge(d.tur === "kilavuz" ? "kilavuz" : "indir") + "</div><div><h3>" + esc(d.ad) +
-          (d.surum ? '<span class="surum">v' + esc(d.surum) + "</span>" : "") + "</h3><p>" + esc(d.aciklama) + "</p></div>" + dugme + "</div>";
+          (d.surum ? '<span class="surum">v' + esc(surumYaz(d.surum)) + "</span>" : "") + "</h3><p>" + esc(d.aciklama) + "</p></div>" + dugme + "</div>";
       }).join("");
       return '<div class="indirme-grup" id="' + esc(u.kod) + '"><h2><img src="assets/img/tys-simge.webp" alt="">' + esc(u.ad) + ' <small style="font-weight:400;color:var(--soluk);font-size:1rem">' + esc(u.slogan) + "</small></h2>" +
         (satir || '<p class="yakinda">Bu ürün için henüz dosya eklenmedi.</p>') + "</div>";
     }).join("");
     var notlar = (v.surumNotlari || []).map(function (n) {
       var u = urunBul(v, n.urun);
-      return "<li><h3>" + esc(u ? u.ad : n.urun) + " v" + esc(n.surum) + '</h3><div class="tarih">' + esc(n.tarih) + "</div><ul>" +
+      return "<li><h3>" + esc(u ? u.ad : n.urun) + " v" + esc(surumYaz(n.surum)) + '</h3><div class="tarih">' + esc(n.tarih) + "</div><ul>" +
         (n.maddeler || []).map(function (m) { return "<li>" + esc(m) + "</li>"; }).join("") + "</ul></li>";
     }).join("");
     $("#icerik").innerHTML =
