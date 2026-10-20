@@ -183,7 +183,24 @@
           "cevap": "Program her gün kendiliğinden yedek alır. Yedekleri istediğiniz klasöre ya da bir USB belleğe de alabilirsiniz."
         }
       ],
-      "gorseller": [],
+      "gorseller": [
+        {
+          "dosya": "assets/yuklemeler/1792514156095-ana-ekran.webp",
+          "aciklama": ""
+        },
+        {
+          "dosya": "assets/yuklemeler/1792514149346-ayarlar-firma-bilgileri.webp",
+          "aciklama": ""
+        },
+        {
+          "dosya": "assets/yuklemeler/1792514136970-cari-kart.webp",
+          "aciklama": ""
+        },
+        {
+          "dosya": "assets/yuklemeler/1792514129410-teklif-tasarimi.webp",
+          "aciklama": ""
+        }
+      ],
       "videolar": []
     },
     {
@@ -305,8 +322,8 @@
     "icerikler": []
   },
   "_panel": {
-    "kayit": 4,
-    "zaman": "2026-10-20T16:33:15.837Z",
+    "kayit": 5,
+    "zaman": "2026-10-20T16:36:00.749Z",
     "not": "Bu bölümü panel yazar; değiştirmeyin."
   }
 }
