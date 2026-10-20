@@ -1,174 +1,288 @@
 {
-  "firma": {
-    "ad": "Aytek Bilişim",
-    "yetkili": "Aytekin Günel",
+  "genel": {
+    "firma": "Aytek Bilişim",
+    "kisi": "Aytekin Günel",
     "telefon": "0 530 788 71 94",
-    "telefonHref": "+905307887194",
+    "telefonLink": "+905307887194",
     "epostalar": [
       "aytekingunel@gmail.com",
       "aytekingunel@msn.com"
     ],
-    "adres": "İstanbul, Türkiye",
-    "haritaUrl": "",
-    "calismaSaatleri": "Pazartesi - Cumartesi: 09:00 - 19:00"
+    "konum": "Tuzla / İstanbul",
+    "fiyatBaslik": "Fiyat bilgisi için arayın",
+    "fiyatMetni": "İşletmenizin ihtiyacına göre kurulum, eğitim ve abonelik seçeneklerini telefonda birlikte belirleyelim.",
+    "altBilgi": "Küçük işletmeler için teklif, kasa, cari ve stok programları."
   },
   "anasayfa": {
-    "ustEtiket": "🚀 İşletmeniz İçin Pratik ve Güçlü Yazılım Çözümleri",
-    "baslik": "Excel Karmaşasına Son Verin, İşletmenizi Tek Ekrandan Yönetin!",
-    "aciklama": "💼 İşletmenizdeki en güçlü yardımcınız! Teklif hazırlamak için artık Excel'de uğraşmanıza gerek yok. Cari takibi ve borç-alacak takibi artık çok pratik bir şekilde kontrolünüzde. 🔐 Kullanıcı belirleyip kullanıcılara özel yetkilendirme ayarlarını yönetebilir, 🧩 kullanmadığınız modülleri kapatıp programı kendinize göre kişiselleştirip sadeleştirebilirsiniz ( 📄 Teklif, 🧾 Proforma Fatura, 👥 Cari, 🏦 Banka, 💰 Kasa, 📦 Stok, 🛠️ Teknik Servis, 👨‍💼 Personel, 🛒 Hızlı Satış Ekranı ). 🤖 Ayrıca programda Yapay Zeka desteği ile detaylı raporlama seçenekleri de mevcuttur.",
-    "birincilButonMetin": "İndirme Merkezine Git",
-    "birincilButonUrl": "indir.html",
-    "ikincilButonMetin": "Eğitim & Kurulum",
-    "ikincilButonUrl": "egitim.html",
-    "istatistikler": [
-      { "deger": "9+", "etiket": "Entegre Modül" },
-      { "deger": "AI", "etiket": "Yapay Zeka Raporlama" },
-      { "deger": "SQLite & MySQL", "etiket": "2 Farklı Sürüm Seçeneği" },
-      { "deger": "%100", "etiket": "Kişiselleştirilebilir" }
+    "baslik": "Teklif, kasa, cari ve stok tek programda.",
+    "altBaslik": "Ticari Yönetim Sistemi, küçük işletmelerin günlük işini sadeleştirir: teklif hazırlarsınız, tahsilatı kasaya işlersiniz, cari bakiyeler ve stok kendiliğinden güncellenir.",
+    "fisBaslik": "Gün sonu",
+    "fisSatirlari": [
+      {
+        "ad": "Teklif ve proforma",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Cari hesaplar",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Kasa ve gün sonu (X / Z)",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Banka ve ekstre aktarma",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Stok, depo ve barkod",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Teknik servis",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Personel ve puantaj",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Hızlı satış (POS)",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Yapay zekâ asistanı",
+        "deger": "dahil"
+      },
+      {
+        "ad": "Otomatik yedekleme",
+        "deger": "dahil"
+      }
+    ],
+    "fisToplam": "Tek program",
+    "secimBaslik": "Hangisi size uygun?",
+    "secimMetni": "İki program aynı modüllere sahiptir. Fark, kaç bilgisayarda kullanacağınızdır.",
+    "modullerBaslik": "Günlük işin tamamı",
+    "moduller": [
+      {
+        "ikon": "teklif",
+        "ad": "Teklif ve proforma",
+        "aciklama": "Kendi tasarımınızla teklif hazırlayın, PDF olarak gönderin, onaylanınca proformaya ve satışa çevirin."
+      },
+      {
+        "ikon": "cari",
+        "ad": "Cari hesaplar",
+        "aciklama": "Müşteri ve tedarikçi bakiyeleri, döviz cinsinden borç/alacak, ekstre ve tahsilat makbuzu."
+      },
+      {
+        "ikon": "kasa",
+        "ad": "Kasa ve gün sonu",
+        "aciklama": "Nakit, kart ve havale hareketleri; X raporu ile ara döküm, Z raporu ile gün kapanışı ve arşiv."
+      },
+      {
+        "ikon": "banka",
+        "ad": "Banka",
+        "aciklama": "Hesap hareketleri, virman ve bankadan indirdiğiniz ekstreyi programa aktarma."
+      },
+      {
+        "ikon": "stok",
+        "ad": "Stok ve depo",
+        "aciklama": "Ürün kartları, birden çok depo, transfer, sayım, kritik seviye uyarısı ve barkod etiketi."
+      },
+      {
+        "ikon": "servis",
+        "ad": "Teknik servis",
+        "aciklama": "Cihaz kabul, arıza ve durum takibi, servis formu yazdırma, tahsilatı kasaya işleme."
+      },
+      {
+        "ikon": "personel",
+        "ad": "Personel",
+        "aciklama": "Puantaj, mesai ve vardiya, izin takibi, maaş ve avans ödemeleri."
+      },
+      {
+        "ikon": "pos",
+        "ad": "Hızlı satış",
+        "aciklama": "Dokunmatik ekrana uygun satış ekranı, ürün tuşları, barkod okuyucu ve müşteri ekranı."
+      },
+      {
+        "ikon": "yz",
+        "ad": "Yapay zekâ asistanı",
+        "aciklama": "\"Geçen ay en çok kime satış yaptım?\" gibi sorularınızı kendi verilerinizden yanıtlar."
+      },
+      {
+        "ikon": "muhasebe",
+        "ad": "Muhasebeci paketi",
+        "aciklama": "Seçtiğiniz ayın ya da çeyreğin dökümleri tek klasörde, muhasebecinize göndermeye hazır."
+      },
+      {
+        "ikon": "yedek",
+        "ad": "Otomatik yedekleme",
+        "aciklama": "Her gün kendiliğinden yedek alır; tek tıkla geri yükleyebilirsiniz."
+      },
+      {
+        "ikon": "kullanici",
+        "ad": "Kullanıcılar ve yetkiler",
+        "aciklama": "Her çalışana kendi girişi; kâr, silme ve ayarlar gibi işlemler yetkiyle sınırlanır."
+      }
     ]
   },
   "urunler": [
     {
-      "id": "tys",
-      "kod": "TYS",
-      "ad": "TYS · Ticari Yönetim Sistemi (Standart)",
-      "kisaAd": "TYS",
-      "altBaslik": "💻 Tek Bilgisayar & Kurulumsuz (SQLite) Pratik Sürüm",
-      "surum": "v1.0.0",
-      "durum": "Yayında",
-      "ikon": "assets/img/tys-simge.webp",
-      "sayfa": "tys.html",
-      "indirUrl": "indir.html#tys",
-      "egitimUrl": "egitim.html#tys",
-      "ozet": "🚀 İşletmenizdeki yardımcınız! Teklif hazırlamak için artık Excel'de uğraşmanıza gerek yok; cari takibi, borç-alacak kontrolü, kullanıcı yetkilendirme, modül sadeleştirme ve 🤖 Yapay Zeka destekli raporlama tek bilgisayarda kontrolünüzde!",
-      "aciklama": "💼 İşletmenizdeki Yeni Nesil Yardımcınız!\nTeklif hazırlamak için artık Excel'de uğraşmanıza gerek yok. Cari takibi ve borç-alacak takibi artık çok pratik bir şekilde kontrolünüzde!\n\n🔐 Kullanıcı & Yetkilendirme Kontrolü:\nKullanıcı belirleyip kullanıcılara özel yetkilendirme ayarları da tamamen sizin kontrolünüzde.\n\n🧩 Kişiselleştirilebilir ve Sade Yapı:\nKullanmadığınız modülleri kapatıp programı kendinize göre kişiselleştirip sadeleştirebilirsiniz:\n( 📄 Teklif • 🧾 Proforma Fatura • 👥 Cari • 🏦 Banka • 💰 Kasa • 📦 Stok • 🛠️ Teknik Servis • 👨‍💼 Personel • 🛒 Hızlı Satış Ekranı )\n\n🤖 Yapay Zeka Desteği:\nAyrıca programda Yapay Zeka (AI) desteği ile detaylı raporlama seçenekleri de mevcuttur.",
-      "etiketler": [
-        "💻 Tek Bilgisayar (SQLite)",
-        "📄 Teklif & Proforma",
-        "👥 Cari & Kasa & Banka",
-        "🔐 Kullanıcı Yetkilendirme",
-        "🧩 Modül Kapatma / Sadeleştirme",
-        "🤖 Yapay Zeka Raporlama"
-      ],
-      "moduller": [
-        { "baslik": "📄 Teklif & Proforma Fatura", "aciklama": "Excel ile uğraşmadan saniyeler içinde kurumsal PDF teklifler ve proforma faturalar hazırlayın." },
-        { "baslik": "👥 Cari Hesap & Borç-Alacak", "aciklama": "Müşteri ve tedarikçi bakiyelerinizi, borç-alacak durumunuzu ve cari ekstrelerinizi pratik şekilde takip edin." },
-        { "baslik": "🏦 Banka & 💰 Kasa Yönetimi", "aciklama": "Nakit akışınızı, tahsilat ve ödemelerinizi, virman ve banka hareketlerinizi tek ekrandan yönetin." },
-        { "baslik": "📦 Stok, Depo & Barkod", "aciklama": "Stok kartları, kritik stok uyarıları ve barkod/etiket tasarım araçlarıyla deponuzu kontrol altında tutun." },
-        { "baslik": "🛠️ Teknik Servis & 👨‍💼 Personel", "aciklama": "Servis kabul, arıza/durum takibi, servis fişi basımı ile personel puantaj ve bordro işlemlerini yönetin." },
-        { "baslik": "🛒 Hızlı Satış & 🤖 Yapay Zeka", "aciklama": "Barkod destekli hızlı satış ekranı ile anında satış yapın; Yapay Zeka desteğiyle detaylı raporlar alın." }
-      ],
+      "kod": "tys",
+      "ad": "TYS",
+      "tamAd": "Ticari Yönetim Sistemi",
+      "slogan": "Tek bilgisayarda çalışan işletmeler için.",
+      "kisa": "Kurulumu birkaç dakika sürer, ayrı bir sunucu gerekmez. Veriler bilgisayarınızda tek bir dosyada durur ve her gün otomatik yedeklenir.",
+      "kimeUygun": "Programı tek bilgisayarda kullanacak dükkân, büro ve servisler",
+      "cizim": "tek",
       "ozellikler": [
-        "📄 Excel'e gerek kalmadan hızlı Teklif ve Proforma Fatura hazırlama",
-        "👥 Pratik Cari Hesap ve Borç-Alacak takibi",
-        "🔐 Kullanıcı tanımlama ve detaylı yetkilendirme ayarları",
-        "🧩 Kullanılmayan modülleri kapatarak programı kişiselleştirme ve sadeleştirme",
-        "🤖 Yapay Zeka (AI) desteği ile detaylı raporlama seçenekleri",
-        "💻 Ekstra sunucu kurulumu gerektirmeyen hızlı SQLite veritabanı"
-      ]
+        {
+          "baslik": "Kurulum ve kullanım",
+          "maddeler": [
+            "Tek kurulum dosyası, ek program gerekmez",
+            "Veriler bilgisayarınızda, internet olmadan çalışır",
+            "Her gün otomatik yedek, tek tıkla geri yükleme",
+            "Programın içinde adım adım yardım"
+          ]
+        },
+        {
+          "baslik": "Satış ve tahsilat",
+          "maddeler": [
+            "Teklif, proforma ve satış belgeleri",
+            "Cari bakiye, ekstre ve tahsilat makbuzu",
+            "Kasa, X ve Z raporu, gün sonu arşivi",
+            "Hızlı satış ekranı ve barkod okuyucu"
+          ]
+        },
+        {
+          "baslik": "Stok ve servis",
+          "maddeler": [
+            "Birden çok depo, transfer ve sayım",
+            "Barkod ve QR etiket yazdırma",
+            "Teknik servis kabul ve takip formu"
+          ]
+        }
+      ],
+      "gereksinimler": [
+        "Windows 10 veya Windows 11 (64 bit)",
+        ".NET Framework 4.8 (Windows'ta genellikle hazır gelir)",
+        "4 GB bellek, 500 MB boş disk",
+        "Yapay zekâ ve güncelleme için internet bağlantısı (isteğe bağlı)"
+      ],
+      "sss": [
+        {
+          "soru": "İnternet olmadan çalışır mı?",
+          "cevap": "Evet. Program ve verileriniz bilgisayarınızda durur. İnternet yalnızca güncelleme denetimi, lisans doğrulama ve online yapay zekâ için kullanılır."
+        },
+        {
+          "soru": "İleride ikinci bir bilgisayar eklersem ne olur?",
+          "cevap": "TYS SQL'e geçebilirsiniz. Mevcut verileriniz TYS SQL'e aktarılır; yeniden giriş yapmanız gerekmez."
+        },
+        {
+          "soru": "Verilerim nasıl yedekleniyor?",
+          "cevap": "Program her gün kendiliğinden yedek alır. Yedekleri istediğiniz klasöre ya da bir USB belleğe de alabilirsiniz."
+        }
+      ],
+      "gorseller": [],
+      "videolar": []
     },
     {
-      "id": "tys-sql",
-      "kod": "TYS_SQL",
-      "ad": "TYS SQL · Çok Kullanıcılı Ticari Yönetim Sistemi (MySQL)",
-      "kisaAd": "TYS SQL",
-      "altBaslik": "🌐 Çok Kullanıcılı (MySQL Sunucu & Ağ Destekli) Kurumsal Sürüm",
-      "surum": "v1.0.0",
-      "durum": "Yayında",
-      "ikon": "assets/img/tys-simge.webp",
-      "sayfa": "tys-sql.html",
-      "indirUrl": "indir.html#tys-sql",
-      "egitimUrl": "indir/TYS_SQL_Kurulum_Kilavuzu.html",
-      "kilavuzUrl": "indir/TYS_SQL_Kurulum_Kilavuzu.html",
-      "ozet": "🌐 Çok kullanıcılı MySQL veritabanı altyapısıyla birden fazla bilgisayarda eşzamanlı çalışma! Excel'siz teklif hazırlama, pratik cari/borç-alacak takibi, kullanıcı yetkilendirme, modül sadeleştirme ve 🤖 Yapay Zeka destekli detaylı raporlama bir arada.",
-      "aciklama": "🌐 İşletmenizdeki Güçlü Yardımcınız (MySQL Çoklu Kullanıcı Sürümü)!\nTeklif hazırlamak için artık Excel'de uğraşmanıza gerek yok. Ağ üzerinden birden fazla bilgisayarda cari takibi ve borç-alacak takibi artık çok pratik bir şekilde kontrolünüzde!\n\n🔐 Gelişmiş Kullanıcı & Yetkilendirme:\nKullanıcı belirleyip kullanıcılara özel yetkilendirme ayarlarını kendi kontrolünüzde yönetebilirsiniz.\n\n🧩 Kişiselleştirin ve Sadeleştirin:\nKullanmadığınız modülleri kapatıp programı kendinize göre kişiselleştirip sadeleştirebilirsiniz:\n( 📄 Teklif • 🧾 Proforma Fatura • 👥 Cari • 🏦 Banka • 💰 Kasa • 📦 Stok • 🛠️ Teknik Servis • 👨‍💼 Personel • ⚡ Hızlı Satış Ekranı )\n\n🤖 Yapay Zeka Destekli Raporlama:\nAyrıca programda Yapay Zeka (AI) desteği ile detaylı raporlama seçenekleri de mevcuttur. Standart (SQLite) sürümden dahili Aktarım Sihirbazı ile verilerinizi kayıpsız olarak MySQL sürümüne taşıyabilirsiniz.",
-      "etiketler": [
-        "🌐 Çoklu Kullanıcı (MySQL)",
-        "🔄 SQLite Aktarım Sihirbazı",
-        "🔐 Gelişmiş Yetkilendirme",
-        "🧩 Modül Kapatma / Sadeleştirme",
-        "🤖 Yapay Zeka Raporlama"
-      ],
-      "moduller": [
-        { "baslik": "🌐 Çoklu Bilgisayar & MySQL Altyapısı", "aciklama": "Satış, muhasebe, depo ve teknik servis departmanlarınız aynı anda ortak veritabanı üzerinden kesintisiz çalışır." },
-        { "baslik": "📄 Teklif & Proforma Fatura", "aciklama": "Excel karmaşasına son verin; saniyeler içinde kurumsal PDF teklifler ve proforma faturalar oluşturun." },
-        { "baslik": "👥 Cari, 🏦 Banka & 💰 Kasa", "aciklama": "Borç-alacak takibi, cari ekstreler, banka ekstre aktarımı ve kasa nakit akışı her an kontrolünüzde." },
-        { "baslik": "📦 Stok, Depo & Etiket Tasarımı", "aciklama": "Çoklu depo yönetimi, barkod/QR etiket tasarım sihirbazı ve toplu Excel aktarım araçları." },
-        { "baslik": "🛠️ Teknik Servis & 👨‍💼 Personel", "aciklama": "Cihaz kabul, servis fişi basımı, personel puantaj, izin ve bordro yönetimi." },
-        { "baslik": "⚡ Hızlı Satış & 🤖 Yapay Zeka", "aciklama": "Müşteri ekranı destekli hızlı satış (POS) ve Yapay Zeka (AI) destekli gelişmiş raporlama." }
-      ],
+      "kod": "tys-sql",
+      "ad": "TYS SQL",
+      "tamAd": "Ticari Yönetim Sistemi SQL",
+      "slogan": "Birden çok bilgisayarda aynı anda çalışan işletmeler için.",
+      "kisa": "Veriler bir sunucu bilgisayarda (MySQL veya MariaDB) durur; kasa, ofis ve depo bilgisayarları aynı verilerle aynı anda çalışır.",
+      "kimeUygun": "Kasada, ofiste ve depoda ayrı bilgisayarları olan işletmeler",
+      "cizim": "cok",
       "ozellikler": [
-        "🌐 MySQL veritabanı ile yerel ağda veya uzaktan çoklu bilgisayar kullanımı",
-        "📄 Excel'de uğraşmadan saniyeler içinde Teklif ve Proforma Fatura hazırlama",
-        "👥 Pratik Cari takibi ve Borç-Alacak kontrolü",
-        "🔐 Kullanıcı belirleme ve detaylı kullanıcı yetkilendirme ayarları",
-        "🧩 Kullanılmayan modülleri kapatarak programı kişiselleştirme ve sadeleştirme",
-        "🤖 Yapay Zeka (AI) desteği ile detaylı raporlama seçenekleri",
-        "🔄 SQLite sürümden MySQL sürüme tek tıkla veri aktarım sihirbazı"
-      ]
+        {
+          "baslik": "Birden çok bilgisayar",
+          "maddeler": [
+            "Bütün terminaller aynı veritabanına bağlanır",
+            "Kasadaki satış ofiste anında görünür",
+            "İki kişi aynı kaydı düzenlerse kim, ne zaman değiştirdi gösterilir; kimse farkında olmadan diğerinin işini ezmez",
+            "Firma bilgileri, teklif tasarımı ve tanımlar bir kez girilir, bütün bilgisayarlarda geçerli olur"
+          ]
+        },
+        {
+          "baslik": "Satış ve tahsilat",
+          "maddeler": [
+            "Teklif, proforma ve satış belgeleri",
+            "Cari bakiye, ekstre ve tahsilat makbuzu",
+            "Kasa, X ve Z raporu, gün sonu arşivi",
+            "Hızlı satış ekranı ve barkod okuyucu"
+          ]
+        },
+        {
+          "baslik": "Güvenlik ve yedek",
+          "maddeler": [
+            "Kullanıcı girişi ve yetkiler bütün bilgisayarlarda aynı",
+            "Günlük otomatik yedek, günde bir kez",
+            "TYS'den verilerinizi aktarma sihirbazı"
+          ]
+        }
+      ],
+      "gereksinimler": [
+        "Windows 10 veya Windows 11 (64 bit), her bilgisayarda",
+        "Sunucu bilgisayarda MySQL 8.4 LTS veya MariaDB 11.4 LTS (ücretsiz)",
+        "Bilgisayarlar aynı yerel ağda (kablolu ya da Wi-Fi)",
+        ".NET Framework 4.8, 4 GB bellek"
+      ],
+      "sss": [
+        {
+          "soru": "Ayrı bir sunucu almam gerekiyor mu?",
+          "cevap": "Hayır. Gün boyu açık kalan bilgisayarlarınızdan biri sunucu olarak kullanılabilir. Kurulum kılavuzunda adım adım anlatılıyor."
+        },
+        {
+          "soru": "TYS'deki verilerimi taşıyabilir miyim?",
+          "cevap": "Evet. TYS SQL ilk açılışta TYS verilerinizi aktarma sihirbazı sunar; cariler, teklifler, kasa, stok ve diğer kayıtlarınız taşınır."
+        },
+        {
+          "soru": "Kaç bilgisayarda kullanabilirim?",
+          "cevap": "Her bilgisayarın lisansı ayrıca etkinleştirilir. İşletmenize uygun cihaz sayısını telefonda birlikte belirleyelim."
+        }
+      ],
+      "gorseller": [],
+      "videolar": []
     }
   ],
-  "egitim": {
-    "baslik": "Eğitim ve Kurulum Merkezi",
-    "aciklama": "TYS ve TYS SQL kurulum adımları, veritabanı yapılandırması ve kullanım rehberleri.",
-    "konular": [
-      {
-        "baslik": "📖 TYS SQL (MySQL) Sunucu ve İstemci Kurulumu",
-        "aciklama": "Çok kullanıcılı MySQL sürümünün adım adım kurulum rehberi ve otomatik sunucu kurulum betiği kullanımı.",
-        "url": "indir/TYS_SQL_Kurulum_Kilavuzu.html"
-      },
-      {
-        "baslik": "🔄 SQLite'tan MySQL'e Veri Aktarım Sihirbazı",
-        "aciklama": "Standart TYS sürümündeki mevcut verilerinizi hiçbir kayıp yaşamadan TYS_SQL sürümüne taşıma adımları.",
-        "url": "indir/TYS_SQL_Kurulum_Kilavuzu.html"
-      }
-    ]
-  },
-  "indir": {
-    "baslik": "İndirme Merkezi",
-    "aciklama": "İşletmenize uygun TYS sürümünü aşağıdan seçerek hemen indirebilirsiniz.",
-    "paketler": [
-      {
-        "id": "tys-sql",
-        "urunId": "tys-sql",
-        "ad": "TYS SQL (MySQL Çok Kullanıcılı Kurulum Paketi)",
-        "surum": "v1.0.0",
-        "tarih": "2026-10",
-        "boyut": "",
-        "aciklama": "🌐 Birden fazla bilgisayarda ortak çalışmaya uygun MySQL veritabanı destekli kurulum paketi.",
-        "indirUrl": "indir/TYS_SQL_Kurulum_Kilavuzu.html",
-        "kilavuzUrl": "indir/TYS_SQL_Kurulum_Kilavuzu.html"
-      },
-      {
-        "id": "tys",
-        "urunId": "tys",
-        "ad": "TYS Standart (SQLite Tek Bilgisayar Paketi)",
-        "surum": "v1.0.0",
-        "tarih": "2026-09",
-        "boyut": "",
-        "aciklama": "💻 Ekstra sunucu kurulumu gerektirmeyen, tek bilgisayarda hızlı çalışan standart sürüm.",
-        "indirUrl": "tys.html",
-        "kilavuzUrl": "egitim.html"
-      }
-    ]
-  },
-  "surumNotlari": [
+  "indirmeler": [
     {
-      "surum": "v1.0.0 - TYS SQL",
-      "tarih": "Ekim 2026",
-      "urun": "TYS SQL",
-      "maddeler": [
-        "🌐 MySQL veritabanı altyapısına geçildi ve çoklu kullanıcı desteği eklendi.",
-        "🔄 Eski SQLite veritabanlarını tek tıkla MySQL'e taşıyan Aktarım Sihirbazı eklendi.",
-        "🔐 Kullanıcı yetkilendirme, modül kapatma/sadeleştirme ve 🤖 Yapay Zeka destekli raporlama iyileştirildi."
-      ]
+      "urun": "tys-sql",
+      "ad": "TYS SQL kurulum dosyası",
+      "aciklama": "Her zaman en son sürümü indirir. Sunucuda ve bütün terminallerde aynı dosya kurulur.",
+      "surum": "1.0.0",
+      "url": "https://github.com/ByHabit/TYS_SQL/releases/latest/download/TYS_SQL_Kurulum.exe",
+      "tur": "kurulum"
     },
     {
-      "surum": "v1.0.0 - TYS",
-      "tarih": "Eylül 2026",
-      "urun": "TYS",
+      "urun": "tys-sql",
+      "ad": "Sunucu ve terminal kurulum kılavuzu",
+      "aciklama": "MySQL veya MariaDB kurulumu, güvenlik duvarı ve terminal bağlantısı; resimli anlatım.",
+      "surum": "",
+      "url": "indir/TYS_SQL_Kurulum_Kilavuzu.html",
+      "tur": "kilavuz"
+    },
+    {
+      "urun": "tys",
+      "ad": "TYS kurulum dosyası",
+      "aciklama": "Tek bilgisayar için kurulum dosyası.",
+      "surum": "",
+      "url": "",
+      "tur": "kurulum"
+    }
+  ],
+  "surumNotlari": [
+    {
+      "urun": "tys-sql",
+      "surum": "1.0.0",
+      "tarih": "2026-10",
       "maddeler": [
-        "🚀 Teklif, Proforma Fatura, Cari, Banka, Kasa, Stok, Teknik Servis, Personel ve Hızlı Satış modülleriyle ilk sürüm yayınlandı."
+        "İlk sürüm: birden çok bilgisayarda MySQL / MariaDB ile çalışma",
+        "Aynı kaydı iki kişi düzenlerse uyarı",
+        "Ortak ayarlar: firma bilgileri ve tasarım bütün bilgisayarlarda aynı",
+        "Bütün listelerde yeni arama ve filtre çubuğu",
+        "TYS'den veri aktarma sihirbazı"
       ]
     }
   ]

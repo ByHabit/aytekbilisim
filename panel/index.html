@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Site paneli | Aytek Bilişim</title>
+<link rel="icon" href="../assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="panel.css">
+</head>
+<body>
+<header class="p-ust">
+  <div class="p-marka"><img src="../assets/img/aytek-logo-64.webp" alt="" width="34" height="34">Site paneli</div>
+  <div class="p-durum" id="durum" role="status" aria-live="polite"></div>
+  <a class="p-bag" href="../index.html" target="_blank" rel="noopener">Siteyi aç</a>
+</header>
+
+<!-- Bağlantı ekranı -->
+<main id="giris" class="p-giris">
+  <h1>Panele bağlanın</h1>
+  <p>Değişiklikler sitenin GitHub deposuna yazılır; site yaklaşık bir dakika içinde güncellenir. Erişim anahtarı yalnızca bu tarayıcıda saklanır.</p>
+  <form id="girisForm" autocomplete="off">
+    <label>Depo <span class="ipucu">kullanıcı/depo, örneğin ByHabit/aytekbilisim</span>
+      <input id="gDepo" required placeholder="ByHabit/aytekbilisim"></label>
+    <label>Dal <span class="ipucu">genellikle main</span>
+      <input id="gDal" value="main" required></label>
+    <label>Erişim anahtarı <span class="ipucu">GitHub › Settings › Developer settings › Fine-grained tokens</span>
+      <input id="gAnahtar" type="password" required placeholder="github_pat_…"></label>
+    <label class="p-kutu"><input type="checkbox" id="gHatirla"> Bu bilgisayarda hatırla</label>
+    <div class="p-dugmeler">
+      <button class="p-dugme p-ana" type="submit">Bağlan</button>
+      <button class="p-dugme" type="button" id="yerelMod">Anahtarsız düzenle (dosya indirir)</button>
+    </div>
+    <p class="p-hata" id="girisHata" role="alert"></p>
+  </form>
+  <details class="p-yardim">
+    <summary>Erişim anahtarı nasıl oluşturulur?</summary>
+    <ol>
+      <li>GitHub'da sağ üstteki profil resmi › <b>Settings</b> › en altta <b>Developer settings</b> › <b>Personal access tokens</b> › <b>Fine-grained tokens</b> › <b>Generate new token</b>.</li>
+      <li>Ad verin (örneğin "Site paneli"), süre seçin (örneğin 1 yıl).</li>
+      <li><b>Repository access</b>: <b>Only select repositories</b> › yalnızca site deposunu seçin.</li>
+      <li><b>Permissions › Repository permissions › Contents</b>: <b>Read and write</b>.</li>
+      <li><b>Generate token</b> deyin, çıkan anahtarı kopyalayıp buraya yapıştırın. Anahtar bir daha gösterilmez; kaybederseniz yenisini oluşturun.</li>
+    </ol>
+  </details>
+</main>
+
+<!-- Düzenleyici -->
+<div id="duzenleyici" class="p-duzen" hidden>
+  <nav class="p-sekmeler" id="sekmeler" aria-label="Bölümler"></nav>
+  <section class="p-form" id="form" aria-live="polite"></section>
+</div>
+
+<footer class="p-alt" id="altCubuk" hidden>
+  <span id="kirliBilgi">Değişiklik yok</span>
+  <div class="p-dugmeler">
+    <button class="p-dugme" type="button" id="jsonIndir">İçerik dosyasını indir</button>
+    <label class="p-dugme">İçerik dosyası yükle<input type="file" id="jsonYukle" accept=".json,application/json" hidden></label>
+    <button class="p-dugme p-ana" type="button" id="kaydet">Kaydet ve yayınla</button>
+  </div>
+</footer>
+<script src="panel.js"></script>
+</body>
+</html>
