@@ -127,4 +127,49 @@
   "indir": {
     "baslik": "İndirme Merkezi",
     "aciklama": "İşletmenize uygun TYS sürümünü aşağıdan seçerek hemen indirebilirsiniz.",
-    "paketler":
+    "paketler": [
+      {
+        "id": "tys-sql",
+        "urunId": "tys-sql",
+        "ad": "TYS SQL (MySQL Çok Kullanıcılı Kurulum Paketi)",
+        "surum": "v1.0.0",
+        "tarih": "2026-10",
+        "boyut": "",
+        "aciklama": "🌐 Birden fazla bilgisayarda ortak çalışmaya uygun MySQL veritabanı destekli kurulum paketi.",
+        "indirUrl": "indir/TYS_SQL_Kurulum_Kilavuzu.html",
+        "kilavuzUrl": "indir/TYS_SQL_Kurulum_Kilavuzu.html"
+      },
+      {
+        "id": "tys",
+        "urunId": "tys",
+        "ad": "TYS Standart (SQLite Tek Bilgisayar Paketi)",
+        "surum": "v1.0.0",
+        "tarih": "2026-09",
+        "boyut": "",
+        "aciklama": "💻 Ekstra sunucu kurulumu gerektirmeyen, tek bilgisayarda hızlı çalışan standart sürüm.",
+        "indirUrl": "tys.html",
+        "kilavuzUrl": "egitim.html"
+      }
+    ]
+  },
+  "surumNotlari": [
+    {
+      "surum": "v1.0.0 - TYS SQL",
+      "tarih": "Ekim 2026",
+      "urun": "TYS SQL",
+      "maddeler": [
+        "🌐 MySQL veritabanı altyapısına geçildi ve çoklu kullanıcı desteği eklendi.",
+        "🔄 Eski SQLite veritabanlarını tek tıkla MySQL'e taşıyan Aktarım Sihirbazı eklendi.",
+        "🔐 Kullanıcı yetkilendirme, modül kapatma/sadeleştirme ve 🤖 Yapay Zeka destekli raporlama iyileştirildi."
+      ]
+    },
+    {
+      "surum": "v1.0.0 - TYS",
+      "tarih": "Eylül 2026",
+      "urun": "TYS",
+      "maddeler": [
+        "🚀 Teklif, Proforma Fatura, Cari, Banka, Kasa, Stok, Teknik Servis, Personel ve Hızlı Satış modülleriyle ilk sürüm yayınlandı."
+      ]
+    }
+  ]
+}
