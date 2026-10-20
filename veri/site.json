@@ -14,8 +14,8 @@
     "altBilgi": "Küçük işletmeler için teklif, kasa, cari ve stok programları."
   },
   "anasayfa": {
-    "baslik": "Teklif, kasa, cari ve stok tek programda.",
-    "altBaslik": "Ticari Yönetim Sistemi, küçük işletmelerin günlük işini sadeleştirir: teklif hazırlarsınız, tahsilatı kasaya işlersiniz, cari bakiyeler ve stok kendiliğinden güncellenir.",
+    "baslik": "TYS Ticari Yönetim Sistemi ",
+    "altBaslik": "🚀 İşletmenizin Yeni Nesil Dijital Asistanı ile Tanışın!Teklif hazırlamak için saatlerce Excel tablolarıyla boğuştuğunuz günleri geride bırakın. Ticari Yönetim Sistemi (TYS) ile saniyeler içinde profesyonel teklifler oluşturun; cari hesaplarınızı, borç-alacak durumunuzu ve nakit akışınızı tek ekrandan zahmetsizce yönetin.   ✨ Neden TYS Kullanmalısınız?📄 Pratik Teklif & Proforma: Excel karmaşasına son verin; kurumsal logonuzla saniyeler içinde PDF teklifler ve proforma faturalar üretin.   💰 Tam Finansal Kontrol: Cari hesaplar, kasa, banka ve borç-alacak takibi her an parmaklarınızın ucunda olsun.   🔐 Gelişmiş Kullanıcı & Yetki Yönetimi: Ekibiniz için ayrı kullanıcılar tanımlayın, kimin hangi ekranlara erişebileceğini kolayca sınırlandırın.   🧩 Size Özel Sadeleştirilebilir Yapı: Karmaşık ekranlara mahkum olmayın! Kullanmadığınız modülleri tek tıkla kapatarak programı sadece kendi işinize göre kişiselleştirin.   🤖 Yapay Zeka Destekli Raporlama: Gelişmiş yapay zeka asistanı sayesinde işletmenizin verilerini analiz edin ve tek tıkla detaylı raporlar alın.   📦 Entegre Modüllerimiz:\n📌 Teklif & Proforma Fatura | 👥 Cari Hesap | 🏦 Banka & Kasa | 📦 Stok & Depo | 🛠️ Teknik Servis | 🛒 Hızlı Satış (POS) | 👨‍💼 Personel & Puantaj ",
     "fisBaslik": "Gün sonu",
     "fisSatirlari": [
       {
@@ -305,8 +305,8 @@
     "icerikler": []
   },
   "_panel": {
-    "kayit": 2,
-    "zaman": "2026-10-19T08:03:07.368Z",
+    "kayit": 3,
+    "zaman": "2026-10-20T16:28:36.027Z",
     "not": "Bu bölümü panel yazar; değiştirmeyin."
   }
 }
