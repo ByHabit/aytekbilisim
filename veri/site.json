@@ -186,19 +186,19 @@
       "gorseller": [
         {
           "dosya": "assets/yuklemeler/1792514156095-ana-ekran.webp",
-          "aciklama": ""
+          "aciklama": "ANA EKRAN ( DASHBOARD)"
         },
         {
           "dosya": "assets/yuklemeler/1792514149346-ayarlar-firma-bilgileri.webp",
-          "aciklama": ""
+          "aciklama": "Firma Bilgileriniz logonuz ve banka bilgileriniz ( Girdiğiniz bilgiler hazırlanan tekliflere eklenir."
         },
         {
           "dosya": "assets/yuklemeler/1792514136970-cari-kart.webp",
-          "aciklama": ""
+          "aciklama": "Firma Bilgilerinizi ve logonuzu girdiğinizde Cari kart görüntüle dediğinizde Firmanızın Kartvizit'ini oluşturur."
         },
         {
           "dosya": "assets/yuklemeler/1792514129410-teklif-tasarimi.webp",
-          "aciklama": ""
+          "aciklama": "Hazırlayacağınız Tekliflerin tasarımı için tasarım işlevsael ve basit editörü mevcuttur."
         }
       ],
       "videolar": []
@@ -322,8 +322,8 @@
     "icerikler": []
   },
   "_panel": {
-    "kayit": 5,
-    "zaman": "2026-10-20T16:36:00.749Z",
+    "kayit": 6,
+    "zaman": "2026-10-20T16:38:46.639Z",
     "not": "Bu bölümü panel yazar; değiştirmeyin."
   }
 }
