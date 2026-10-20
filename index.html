@@ -1,24 +1,902 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aytek Bilişim · TYS ve TYS SQL</title>
-<meta name="description" content="Küçük işletmeler için teklif, cari, kasa, banka, stok, teknik servis ve personel programı. Tek bilgisayar için TYS, birden çok bilgisayar için TYS SQL.">
-<meta property="og:title" content="Aytek Bilişim · TYS ve TYS SQL">
-<meta property="og:description" content="Küçük işletmeler için teklif, cari, kasa, banka, stok, teknik servis ve personel programı. Tek bilgisayar için TYS, birden çok bilgisayar için TYS SQL.">
-<meta property="og:image" content="assets/img/aytek-logo.webp">
-<link rel="icon" href="assets/img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aytek Bilişim | Gelişmiş Site Yönetim Paneli</title>
+  <style>
+    :root {
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --nav: #0f172a;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --success: #16a34a;
+      --warning: #d97706;
+      --danger: #dc2626;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    /* Üst Bar */
+    header {
+      background: var(--nav);
+      color: #fff;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .brand span.badge {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #38bdf8;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    #statusBanner {
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: #1e293b;
+      color: #cbd5e1;
+    }
+    #statusBanner.ok { background: rgba(22, 163, 74, 0.25); color: #86efac; }
+    #statusBanner.err { background: rgba(220, 38, 38, 0.25); color: #fca5a5; }
+    #statusBanner.warn { background: rgba(217, 119, 6, 0.25); color: #fcd34d; }
+
+    /* Ana Gövde */
+    .workspace {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+    /* Sol Menü */
+    aside {
+      width: 250px;
+      background: #fff;
+      border-right: 1px solid var(--border);
+      padding: 16px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      overflow-y: auto;
+    }
+    .nav-group-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      padding: 10px 12px 4px;
+      font-weight: 700;
+    }
+    .nav-btn {
+      border: none;
+      background: transparent;
+      text-align: left;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s;
+    }
+    .nav-btn:hover { background: #f8fafc; }
+    .nav-btn.active {
+      background: #eff6ff;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* İçerik Alanı */
+    main {
+      flex: 1;
+      padding: 28px 36px;
+      overflow-y: auto;
+    }
+    .tab-pane {
+      display: none;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .tab-pane.active { display: block; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card p.desc {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+    label small {
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 6px;
+    }
+    input[type="text"], input[type="password"], textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border 0.15s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+    textarea { resize: vertical; min-height: 110px; line-height: 1.5; }
+    textarea.tall { min-height: 220px; }
+
+    /* Emoji Hızlı Ekleme Çubuğu */
+    .emoji-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+      background: #f8fafc;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px dashed #cbd5e1;
+      align-items: center;
+    }
+    .emoji-bar span { font-size: 12px; color: var(--muted); margin-right: 4px; }
+    .emoji-chip {
+      border: 1px solid #e2e8f0;
+      background: #fff;
+      border-radius: 6px;
+      padding: 3px 7px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .emoji-chip:hover { background: #eff6ff; border-color: #93c5fd; }
+
+    /* Alt Bar */
+    footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+    .btn {
+      border: 1px solid transparent;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+      text-decoration: none;
+    }
+    .btn-outline {
+      background: #fff;
+      border-color: #cbd5e1;
+      color: var(--text);
+    }
+    .btn-outline:hover { background: #f8fafc; }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-success {
+      background: var(--success);
+      color: #fff;
+    }
+    .btn-warning {
+      background: #f59e0b;
+      color: #fff;
+    }
+    .preview-box {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 18px;
+      border-radius: 10px;
+      white-space: pre-line;
+      line-height: 1.6;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
-<body data-sayfa="ana">
-<a class="gizli" href="#icerik">İçeriğe geç</a>
-<header class="ust" id="ust"></header>
-<main id="icerik"><div class="kap durum-kutu">Yükleniyor…</div></main>
-<footer class="alt-bilgi" id="alt"></footer>
-<script src="assets/js/site.js"></script>
+<body>
+
+  <!-- ÜST BAR -->
+  <header>
+    <div class="brand">
+      <span>🛠️ Aytek Bilişim — Site Yönetim Paneli</span>
+      <span class="badge">v2.0 Kırılmaz JSON Motoru</span>
+    </div>
+    <div class="top-actions">
+      <div id="statusBanner">Hazır</div>
+      <button class="btn btn-warning" onclick="hazirMetinleriUygula()" title="TYS ve TYS_SQL için hazırlanan profesyonel tanıtım metinlerini otomatik doldurur">
+        ✨ Hazır TYS & TYS_SQL Metinlerini Doldur
+      </button>
+      <a href="../index.html" target="_blank" class="btn btn-outline" style="background:#1e293b; color:#fff; border-color:#334155;">
+        🌐 Siteyi Aç
+      </a>
+    </div>
+  </header>
+
+  <!-- ANA ÇALIŞMA ALANI -->
+  <div class="workspace">
+    <!-- SOL MENÜ -->
+    <aside>
+      <div class="nav-group-title">Genel Ayarlar</div>
+      <button class="nav-btn active" onclick="sekmeAc('tab-firma', this)">🏢 Firma ve İletişim</button>
+      <button class="nav-btn" onclick="sekmeAc('tab-anasayfa', this)">🏠 Ana Sayfa Vitrin</button>
+
+      <div class="nav-group-title">Ürün Yönetimi</div>
+      <button class="nav-btn" onclick="sekmeAc('tab-tys', this)">💻 TYS (SQLite Sürümü)</button>
+      <button class="nav-btn" onclick="sekmeAc('tab-tyssql', this)">🌐 TYS SQL (MySQL Sürümü)</button>
+
+      <div class="nav-group-title">Yayınlama & Yedek</div>
+      <button class="nav-btn" onclick="sekmeAc('tab-sayfalar', this)">📄 Statik HTML Üretici</button>
+      <button class="nav-btn" onclick="sekmeAc('tab-github', this)">🚀 GitHub Otomatik Yayınla</button>
+      <button class="nav-btn" onclick="sekmeAc('tab-json', this)">🧩 Ham JSON Editörü</button>
+    </aside>
+
+    <!-- SAĞ İÇERİK -->
+    <main>
+
+      <!-- 1. FİRMA VE İLETİŞİM -->
+      <div id="tab-firma" class="tab-pane active">
+        <div class="card">
+          <h2>🏢 Firma ve İletişim Bilgileri</h2>
+          <p class="desc">Sitenin üst/alt kısmında ve iletişim sayfasında görünen temel bilgiler.</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Firma Adı</label>
+              <input type="text" id="f_ad" oninput="formdanVeriye()" />
+            </div>
+            <div class="form-group">
+              <label>Yetkili Kişi</label>
+              <input type="text" id="f_yetkili" oninput="formdanVeriye()" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Telefon (Görünen) <small>Örn: 0 530 788 71 94</small></label>
+              <input type="text" id="f_tel" oninput="formdanVeriye()" />
+            </div>
+            <div class="form-group">
+              <label>Telefon (Arama Linki) <small>Örn: +905307887194</small></label>
+              <input type="text" id="f_telLink" oninput="formdanVeriye()" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>E-posta Adresleri <small>(Her satıra bir e-posta)</small></label>
+            <textarea id="f_eposta" oninput="formdanVeriye()" style="min-height:70px;"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Adres</label>
+            <input type="text" id="f_adres" oninput="formdanVeriye()" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. ANA SAYFA -->
+      <div id="tab-anasayfa" class="tab-pane">
+        <div class="card">
+          <h2>🏠 Ana Sayfa Başlık ve Tanıtım</h2>
+          <p class="desc">Ziyaretçilerin siteye girdiğinde ilk gördüğü karşılama alanı.</p>
+          <div class="form-group">
+            <label>Üst Rozet Yazısı</label>
+            <input type="text" id="a_rozet" oninput="formdanVeriye()" />
+          </div>
+          <div class="form-group">
+            <label>Ana Başlık (H1)</label>
+            <input type="text" id="a_baslik" oninput="formdanVeriye()" />
+          </div>
+          <div class="form-group">
+            <label>Başlık Altı Çekici Tanıtım Yazısı</label>
+            <textarea id="a_altBaslik" oninput="formdanVeriye()"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Öne Çıkan Maddeler <small>(Her satıra bir özellik)</small></label>
+            <textarea id="a_vurgular" oninput="formdanVeriye()"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. TYS (SQLITE) -->
+      <div id="tab-tys" class="tab-pane">
+        <div class="card">
+          <h2>💻 TYS — Standart Sürüm (SQLite / Tek Bilgisayar)</h2>
+          <p class="desc">Tek bilgisayarda kurulumsuz çalışan SQLite versiyonunun tanıtım metinleri.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Ürün Başlığı</label>
+              <input type="text" id="tys_ad" oninput="formdanVeriye()" />
+            </div>
+            <div class="form-group">
+              <label>Sürüm</label>
+              <input type="text" id="tys_surum" oninput="formdanVeriye()" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Kısa Alt Başlık (Sürüm Özeti)</label>
+            <input type="text" id="tys_kisaBaslik" oninput="formdanVeriye()" />
+          </div>
+
+          <div class="form-group">
+            <label>Başlık Altı Özet Metin (Kartlarda ve Üstte Görünür)</label>
+            <textarea id="tys_altYazi" oninput="formdanVeriye()"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Detaylı Tanıtım Metni (Simgeli)</label>
+            <div class="emoji-bar">
+              <span>Simge Ekle:</span>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('tys_aciklama','🚀 ')">🚀</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('tys_aciklama','💼 ')">💼</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('tys_aciklama','📄 ')">📄</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('tys_aciklama','👥 ')">👥</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('tys_aciklama','🏦 ')">🏦</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('tys_aciklama','💰 ')">💰</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('tys_aciklama','📦 ')">📦</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('tys_aciklama','🛠️ ')">🛠️</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('tys_aciklama','👨‍💼 ')">👨‍💼</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('tys_aciklama','🛒 ')">🛒</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('tys_aciklama','🔐 ')">🔐</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('tys_aciklama','🧩 ')">🧩</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('tys_aciklama','🤖 ')">🤖</button>
+            </div>
+            <textarea id="tys_aciklama" class="tall" oninput="formdanVeriye()"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Modül Listesi <small>(Her satıra bir modül)</small></label>
+            <textarea id="tys_moduller" oninput="formdanVeriye()"></textarea>
+          </div>
+
+          <label>Canlı Görünüm Önizlemesi:</label>
+          <div id="tys_onizleme" class="preview-box"></div>
+        </div>
+      </div>
+
+      <!-- 4. TYS_SQL (MYSQL) -->
+      <div id="tab-tyssql" class="tab-pane">
+        <div class="card">
+          <h2>🌐 TYS_SQL — Kurumsal Sürüm (MySQL / Çoklu Kullanıcı)</h2>
+          <p class="desc">Ağ üzerinden birden fazla bilgisayarla çalışan MySQL versiyonunun tanıtım metinleri.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Ürün Başlığı</label>
+              <input type="text" id="sql_ad" oninput="formdanVeriye()" />
+            </div>
+            <div class="form-group">
+              <label>Sürüm</label>
+              <input type="text" id="sql_surum" oninput="formdanVeriye()" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Kısa Alt Başlık (Sürüm Özeti)</label>
+            <input type="text" id="sql_kisaBaslik" oninput="formdanVeriye()" />
+          </div>
+
+          <div class="form-group">
+            <label>Başlık Altı Özet Metin (Kartlarda ve Üstte Görünür)</label>
+            <textarea id="sql_altYazi" oninput="formdanVeriye()"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Detaylı Tanıtım Metni (Simgeli)</label>
+            <div class="emoji-bar">
+              <span>Simge Ekle:</span>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('sql_aciklama','🌐 ')">🌐</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('sql_aciklama','🚀 ')">🚀</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('sql_aciklama','📄 ')">📄</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('sql_aciklama','👥 ')">👥</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('sql_aciklama','🏦 ')">🏦</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('sql_aciklama','💰 ')">💰</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('sql_aciklama','📦 ')">📦</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('sql_aciklama','🛠️ ')">🛠️</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('sql_aciklama','👨‍💼 ')">👨‍💼</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('sql_aciklama','⚡ ')">⚡</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('sql_aciklama','🔐 ')">🔐</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('sql_aciklama','🧩 ')">🧩</button>
+              <button type="button" class="emoji-chip" onclick="simgeEkle('sql_aciklama','🤖 ')">🤖</button>
+            </div>
+            <textarea id="sql_aciklama" class="tall" oninput="formdanVeriye()"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Modül Listesi <small>(Her satıra bir modül)</small></label>
+            <textarea id="sql_moduller" oninput="formdanVeriye()"></textarea>
+          </div>
+
+          <label>Canlı Görünüm Önizlemesi:</label>
+          <div id="sql_onizleme" class="preview-box"></div>
+        </div>
+      </div>
+
+      <!-- 5. STATİK HTML ÜRETİCİ -->
+      <div id="tab-sayfalar" class="tab-pane">
+        <div class="card">
+          <h2>📄 Doğrudan İndirilebilir HTML Sayfaları Üret</h2>
+          <p class="desc">JSON ile uğraşmadan doğrudan <code>tys.html</code> ve <code>tys-sql.html</code> sayfalarını bu paneldeki güncel verilerle tek tıkla bilgisayarınıza indirebilirsiniz.</p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <button class="btn btn-primary" onclick="urunHtmlIndir('tys')">⬇️ tys.html Dosyasını İndir</button>
+            <button class="btn btn-success" onclick="urunHtmlIndir('tys_sql')">⬇️ tys-sql.html Dosyasını İndir</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. GITHUB OTOMATİK YAYINLAMA -->
+      <div id="tab-github" class="tab-pane">
+        <div class="card">
+          <h2>🚀 GitHub Otomatik Kaydetme Ayarları</h2>
+          <p class="desc">Değişikliklerinizi tek tıkla <code>byhabit/aytekbilisim</code> deponuza göndermek için GitHub Token bilginizi girin (Tarayıcınızda yerel olarak saklanır).</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label>GitHub Repo <small>(kullanici/repo)</small></label>
+              <input type="text" id="gh_repo" value="byhabit/aytekbilisim" />
+            </div>
+            <div class="form-group">
+              <label>Dal (Branch)</label>
+              <input type="text" id="gh_branch" value="main" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>GitHub Personal Access Token (PAT)</label>
+            <input type="password" id="gh_token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" oninput="localStorage.setItem('aytek_gh_token', this.value)" />
+          </div>
+          <div style="display:flex; gap:10px;">
+            <button class="btn btn-outline" onclick="githubdanCek()">🔄 Canlı Siteden (GitHub) Verileri Çek</button>
+            <button class="btn btn-primary" onclick="githubaGonder()">🚀 Şimdi GitHub'a Kaydet ve Yayınla</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. HAM JSON EDİTÖRÜ -->
+      <div id="tab-json" class="tab-pane">
+        <div class="card">
+          <h2>🧩 Ham JSON Kontrolü (Otomatik Doğrulamalı)</h2>
+          <p class="desc">JSON yapısı burada otomatik oluşturulur ve tırnak/satır hatalarına karşı korunur.</p>
+          <textarea id="raw_json" class="tall" style="font-family:monospace; font-size:12px;"></textarea>
+          <div style="margin-top:12px;">
+            <button class="btn btn-outline" onclick="hamJsondanUygula()">✔️ JSON Değişikliklerini Forma Uygula</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ALT BAR -->
+  <footer>
+    <div style="font-size:13px; color:var(--muted);">
+      💡 İpucu: Sol üstteki <b>"Hazır TYS & TYS_SQL Metinlerini Doldur"</b> butonuyla tüm tanıtım yazılarını tek tıkla yükleyebilirsiniz.
+    </div>
+    <div style="display:flex; gap:10px;">
+      <input type="file" id="fileInput" accept=".json" style="display:none" onchange="dosyaYukle(event)" />
+      <button class="btn btn-outline" onclick="document.getElementById('fileInput').click()">📂 site.json Yükle</button>
+      <button class="btn btn-outline" onclick="jsonIndir()">💾 site.json İndir</button>
+      <button class="btn btn-primary" onclick="githubaGonder()">🚀 Kaydet ve Yayınla</button>
+    </div>
+  </footer>
+
+  <script>
+    // VARSAYILAN KUSURSUZ ŞABLON (Dosya okunamasa bile devreye girer)
+    const VARSAYILAN_VERI = {
+      firma: {
+        ad: "Aytek Bilişim",
+        yetkili: "Aytekin Günel",
+        telefon: "0 530 788 71 94",
+        telefonLink: "+905307887194",
+        epostalar: ["aytekingunel@gmail.com", "aytekingunel@msn.com"],
+        adres: "İstanbul, Türkiye",
+        githubRepo: "byhabit/aytekbilisim",
+        githubBranch: "main"
+      },
+      anasayfa: {
+        ustRozet: "🚀 İşletmeniz İçin Yeni Nesil Ticari Çözümler",
+        baslik: "Excel Karmaşasına Son Verin, İşletmenizi Tek Ekrandan Yönetin!",
+        altBaslik: "💼 Teklif hazırlamak için artık Excel'de uğraşmanıza gerek yok! Cari takibi, borç-alacak kontrolü, kullanıcı yetkilendirme, kişiselleştirilebilir modüler yapı ve 🤖 Yapay Zeka destekli detaylı raporlama artık çok pratik bir şekilde kontrolünüzde.",
+        vurgular: [
+          "📄 Pratik Teklif & Proforma Fatura",
+          "👥 Cari & Borç-Alacak Takibi",
+          "🔐 Gelişmiş Kullanıcı Yetkilendirme",
+          "🧩 Kişiselleştirilebilir & Sadeleştirilebilir Modüller",
+          "🤖 Yapay Zeka (AI) Destekli Detaylı Raporlama"
+        ]
+      },
+      urunler: {
+        tys: {
+          id: "tys",
+          ad: "TYS - Ticari Yönetim Sistemi (Standart / SQLite)",
+          kisaBaslik: "💻 Tek Bilgisayar & Kurulumsuz Pratik Sürüm",
+          surum: "v1.0.0",
+          altYazi: "🚀 İşletmenizdeki en pratik yardımcınız! Teklif hazırlamak için artık Excel'de uğraşmanıza gerek yok. Cari takibi ve borç-alacak takibi artık çok pratik bir şekilde kontrolünüzde!",
+          aciklama: "💼 İşletmenizdeki Yeni Nesil Yardımcınız!\nTeklif hazırlamak için artık saatlerce Excel tablolarıyla uğraşmanıza gerek yok. TYS (SQLite Standart Sürüm) ile saniyeler içinde profesyonel teklifler hazırlayabilir; cari takibi ve borç-alacak hesaplarınızı çok pratik bir şekilde kontrolünüz altında tutabilirsiniz.\n\n🔐 Kullanıcı & Yetkilendirme Kontrolü:\nKullanıcı belirleyip kullanıcılara özel yetkilendirme ayarlarını tamamen kendi kontrolünüzde yönetebilirsiniz.\n\n🧩 Kişiselleştirin ve Sadeleştirin:\nKullanmadığınız modülleri ayarlardan tek tıkla kapatıp programı kendinize göre kişiselleştirip sadeleştirebilirsiniz ( 📄 Teklif, 🧾 Proforma Fatura, 👥 Cari, 🏦 Banka, 💰 Kasa, 📦 Stok, 🛠️ Teknik Servis, 👨‍💼 Personel, 🛒 Hızlı Satış Ekranı ).\n\n🤖 Yapay Zeka (AI) Desteği:\nAyrıca programda Yapay Zeka desteği ile işletmenize özel detaylı raporlama seçenekleri de mevcuttur.\n\n💡 Neden Standart (SQLite) Sürüm?\nEkstra veritabanı sunucusu kurulumu gerektirmez. Tek bilgisayarda çalışan işletmeler için yüksek hız, taşınabilir yapı ve zahmetsiz kullanım sunar.",
+          moduller: [
+            "📄 Teklif & Proforma Fatura",
+            "👥 Cari Hesap & Borç/Alacak",
+            "🏦 Banka Yönetimi",
+            "💰 Kasa Takibi",
+            "📦 Stok & Depo Yönetimi",
+            "🛠️ Teknik Servis Takibi",
+            "👨‍💼 Personel, Puantaj & Bordro",
+            "🛒 Hızlı Satış Ekranı (Barkodlu)",
+            "🤖 Yapay Zeka Destekli Raporlama"
+          ],
+          indirmeLinki: "indir.html#tys",
+          sayfa: "tys.html"
+        },
+        tys_sql: {
+          id: "tys-sql",
+          ad: "TYS_SQL - Ticari Yönetim Sistemi (MySQL / Çoklu Kullanıcı)",
+          kisaBaslik: "🌐 Çok Kullanıcılı (Ağ ve Uzak Bağlantı Destekli) Kurumsal Sürüm",
+          surum: "v1.0.0",
+          altYazi: "🌐 Çok kullanıcılı MySQL veritabanı altyapısıyla birden fazla bilgisayarda eşzamanlı çalışma! Excel karmaşasına son veren teklif hazırlama, pratik cari/borç-alacak takibi, kullanıcı yetkilendirme ve Yapay Zeka destekli detaylı raporlama bir arada.",
+          aciklama: "🌐 İşletmeniz İçin Güçlü, Hızlı ve Çok Kullanıcılı MySQL Altyapısı!\nTeklif hazırlamak için artık Excel'de uğraşmanıza gerek yok! TYS_SQL ile ofis içi ağda veya uzaktan birden fazla bilgisayardan aynı anda çalışabilir; cari takibi, borç-alacak takibi ve nakit akışınızı çok pratik bir şekilde kontrolünüzde tutabilirsiniz.\n\n🔐 Gelişmiş Kullanıcı & Yetkilendirme Ayarları:\nİşletmenizdeki personeller için ayrı kullanıcılar belirleyip kullanıcılara özel yetkilendirme ayarlarını tamamen sizin kontrolünüzde yönetebilirsiniz.\n\n🧩 Size Özel Sadeleştirilebilir Yapı:\nKullanmadığınız modülleri kapatıp programı kendinize göre kişiselleştirip sadeleştirebilirsiniz ( 📄 Teklif, 🧾 Proforma Fatura, 👥 Cari, 🏦 Banka, 💰 Kasa, 📦 Stok, 🛠️ Teknik Servis, 👨‍💼 Personel, ⚡ Hızlı Satış Ekranı ).\n\n🤖 Yapay Zeka Destekli Detaylı Raporlama:\nAyrıca programda Yapay Zeka (AI) desteği ile doğal dilde sorgulama ve detaylı raporlama seçenekleri de mevcuttur.\n\n🔥 MySQL Sürümünün Ekstra Avantajları:\n• 🖥️ Çoklu Bilgisayar: Satış, muhasebe, depo ve teknik servis aynı anda ortak veritabanında çalışır.\n• 🔄 Kolay Geçiş: Standart (SQLite) sürümden dahili Aktarım Sihirbazı ile tek tıkla kayıpsız geçiş imkanı.\n• 🛡️ Çakışma Koruması: Çoklu kullanımda kayıt kilitleme ve veri güvenliği.",
+          moduller: [
+            "🌐 Çoklu Kullanıcı (MySQL Sunucu Altyapısı)",
+            "📄 Teklif & Proforma Fatura",
+            "👥 Cari Hesap & Borç/Alacak",
+            "🏦 Banka & Ekstre Aktarımı",
+            "💰 Kasa & Virman Yönetimi",
+            "📦 Stok, Depo & Etiket Tasarımı",
+            "🛠️ Teknik Servis & Fiş Basımı",
+            "👨‍💼 Personel, Puantaj & Bordro",
+            "⚡ Hızlı Satış Ekranı & Müşteri Ekranı",
+            "🤖 Yapay Zeka (AI) Raporlama Asistanı"
+          ],
+          indirmeLinki: "indir.html#tys-sql",
+          kilavuzLinki: "indir/TYS_SQL_Kurulum_Kilavuzu.html",
+          sayfa: "tys-sql.html"
+        }
+      }
+    };
+
+    let aktifVeri = JSON.parse(JSON.stringify(VARSAYILAN_VERI));
+
+    function durumYaz(mesaj, tip = "") {
+      const el = document.getElementById("statusBanner");
+      el.textContent = mesaj;
+      el.className = tip;
+    }
+
+    function sekmeAc(id, btn) {
+      document.querySelectorAll(".tab-pane").forEach(p => p.classList.remove("active"));
+      document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      btn.classList.add("active");
+    }
+
+    function veridenForma() {
+      const f = aktifVeri.firma || {};
+      document.getElementById("f_ad").value = f.ad || "";
+      document.getElementById("f_yetkili").value = f.yetkili || "";
+      document.getElementById("f_tel").value = f.telefon || "";
+      document.getElementById("f_telLink").value = f.telefonLink || "";
+      document.getElementById("f_eposta").value = (f.epostalar || []).join("\n");
+      document.getElementById("f_adres").value = f.adres || "";
+
+      const a = aktifVeri.anasayfa || {};
+      document.getElementById("a_rozet").value = a.ustRozet || "";
+      document.getElementById("a_baslik").value = a.baslik || "";
+      document.getElementById("a_altBaslik").value = a.altBaslik || "";
+      document.getElementById("a_vurgular").value = (a.vurgular || []).join("\n");
+
+      const tys = (aktifVeri.urunler && aktifVeri.urunler.tys) || {};
+      document.getElementById("tys_ad").value = tys.ad || "";
+      document.getElementById("tys_surum").value = tys.surum || "";
+      document.getElementById("tys_kisaBaslik").value = tys.kisaBaslik || "";
+      document.getElementById("tys_altYazi").value = tys.altYazi || "";
+      document.getElementById("tys_aciklama").value = tys.aciklama || "";
+      document.getElementById("tys_moduller").value = (tys.moduller || []).join("\n");
+
+      const sql = (aktifVeri.urunler && aktifVeri.urunler.tys_sql) || {};
+      document.getElementById("sql_ad").value = sql.ad || "";
+      document.getElementById("sql_surum").value = sql.surum || "";
+      document.getElementById("sql_kisaBaslik").value = sql.kisaBaslik || "";
+      document.getElementById("sql_altYazi").value = sql.altYazi || "";
+      document.getElementById("sql_aciklama").value = sql.aciklama || "";
+      document.getElementById("sql_moduller").value = (sql.moduller || []).join("\n");
+
+      onizlemeGuncelle();
+      document.getElementById("raw_json").value = JSON.stringify(aktifVeri, null, 2);
+    }
+
+    function formdanVeriye() {
+      if (!aktifVeri.firma) aktifVeri.firma = {};
+      aktifVeri.firma.ad = document.getElementById("f_ad").value;
+      aktifVeri.firma.yetkili = document.getElementById("f_yetkili").value;
+      aktifVeri.firma.telefon = document.getElementById("f_tel").value;
+      aktifVeri.firma.telefonLink = document.getElementById("f_telLink").value;
+      aktifVeri.firma.epostalar = document.getElementById("f_eposta").value.split("\n").map(s => s.trim()).filter(Boolean);
+      aktifVeri.firma.adres = document.getElementById("f_adres").value;
+
+      if (!aktifVeri.anasayfa) aktifVeri.anasayfa = {};
+      aktifVeri.anasayfa.ustRozet = document.getElementById("a_rozet").value;
+      aktifVeri.anasayfa.baslik = document.getElementById("a_baslik").value;
+      aktifVeri.anasayfa.altBaslik = document.getElementById("a_altBaslik").value;
+      aktifVeri.anasayfa.vurgular = document.getElementById("a_vurgular").value.split("\n").map(s => s.trim()).filter(Boolean);
+
+      if (!aktifVeri.urunler) aktifVeri.urunler = { tys: {}, tys_sql: {} };
+      aktifVeri.urunler.tys.ad = document.getElementById("tys_ad").value;
+      aktifVeri.urunler.tys.surum = document.getElementById("tys_surum").value;
+      aktifVeri.urunler.tys.kisaBaslik = document.getElementById("tys_kisaBaslik").value;
+      aktifVeri.urunler.tys.altYazi = document.getElementById("tys_altYazi").value;
+      aktifVeri.urunler.tys.aciklama = document.getElementById("tys_aciklama").value;
+      aktifVeri.urunler.tys.moduller = document.getElementById("tys_moduller").value.split("\n").map(s => s.trim()).filter(Boolean);
+
+      aktifVeri.urunler.tys_sql.ad = document.getElementById("sql_ad").value;
+      aktifVeri.urunler.tys_sql.surum = document.getElementById("sql_surum").value;
+      aktifVeri.urunler.tys_sql.kisaBaslik = document.getElementById("sql_kisaBaslik").value;
+      aktifVeri.urunler.tys_sql.altYazi = document.getElementById("sql_altYazi").value;
+      aktifVeri.urunler.tys_sql.aciklama = document.getElementById("sql_aciklama").value;
+      aktifVeri.urunler.tys_sql.moduller = document.getElementById("sql_moduller").value.split("\n").map(s => s.trim()).filter(Boolean);
+
+      onizlemeGuncelle();
+      document.getElementById("raw_json").value = JSON.stringify(aktifVeri, null, 2);
+      durumYaz("Değişiklikler hazır (Kaydetmeyi unutmayın)", "warn");
+    }
+
+    function onizlemeGuncelle() {
+      document.getElementById("tys_onizleme").textContent =
+        aktifVeri.urunler.tys.ad + " (" + aktifVeri.urunler.tys.surum + ")\n" +
+        aktifVeri.urunler.tys.kisaBaslik + "\n\n" +
+        aktifVeri.urunler.tys.aciklama;
+
+      document.getElementById("sql_onizleme").textContent =
+        aktifVeri.urunler.tys_sql.ad + " (" + aktifVeri.urunler.tys_sql.surum + ")\n" +
+        aktifVeri.urunler.tys_sql.kisaBaslik + "\n\n" +
+        aktifVeri.urunler.tys_sql.aciklama;
+    }
+
+    function simgeEkle(alanId, simge) {
+      const el = document.getElementById(alanId);
+      const bas = el.selectionStart || 0;
+      const son = el.selectionEnd || 0;
+      el.value = el.value.substring(0, bas) + simge + el.value.substring(son);
+      el.focus();
+      el.selectionStart = el.selectionEnd = bas + simge.length;
+      formdanVeriye();
+    }
+
+    function hazirMetinleriUygula() {
+      aktifVeri = JSON.parse(JSON.stringify(VARSAYILAN_VERI));
+      veridenForma();
+      durumYaz("✨ Hazır TYS ve TYS_SQL tanıtım metinleri başarıyla yüklendi!", "ok");
+    }
+
+    function hamJsondanUygula() {
+      try {
+        aktifVeri = JSON.parse(document.getElementById("raw_json").value);
+        veridenForma();
+        durumYaz("✔️ JSON başarıyla doğrulandı ve forma uygulandı.", "ok");
+      } catch (e) {
+        durumYaz("❌ JSON Format Hatası: " + e.message, "err");
+      }
+    }
+
+    function jsonIndir() {
+      const blob = new Blob([JSON.stringify(aktifVeri, null, 2)], { type: "application/json;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "site.json";
+      a.click();
+      durumYaz("💾 site.json bilgisayarınıza indirildi.", "ok");
+    }
+
+    function dosyaYukle(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        try {
+          const okunan = JSON.parse(evt.target.result);
+          aktifVeri = Object.assign({}, VARSAYILAN_VERI, okunan);
+          veridenForma();
+          durumYaz("📂 site.json başarıyla yüklendi!", "ok");
+        } catch (err) {
+          durumYaz("⚠️ Seçilen JSON hatalıydı, otomatik onarım şablonu yüklendi!", "warn");
+          hazirMetinleriUygula();
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // ÜRÜN HTML SAYFASI ÜRETİCİ (tys.html / tys-sql.html)
+    function urunHtmlIndir(anahtar) {
+      const u = aktifVeri.urunler[anahtar];
+      const f = aktifVeri.firma;
+      const dosyaAdi = anahtar === "tys" ? "tys.html" : "tys-sql.html";
+      const htmlIcerik = `<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${u.ad} | ${f.ad}</title>
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .hero-box { max-width: 980px; margin: 40px auto; padding: 36px; background: #111827; color: #f9fafb; border-radius: 16px; border: 1px solid #1f2937; }
+    .hero-badge { display: inline-block; background: #1d4ed8; color: #fff; padding: 6px 14px; border-radius: 99px; font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+    .hero-title { font-size: 32px; margin-bottom: 12px; color: #fff; }
+    .hero-lead { font-size: 17px; color: #cbd5e1; line-height: 1.6; margin-bottom: 24px; }
+    .desc-card { background: #1e293b; padding: 24px; border-radius: 12px; white-space: pre-line; line-height: 1.75; color: #e2e8f0; margin-bottom: 24px; }
+    .mod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 16px; }
+    .mod-item { background: #0f172a; border: 1px solid #334155; padding: 12px 16px; border-radius: 10px; font-weight: 600; color: #f8fafc; }
+    .cta-row { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+    .cta-btn { padding: 12px 24px; border-radius: 10px; font-weight: 700; text-decoration: none; background: #2563eb; color: #fff; }
+    .cta-btn.sec { background: #334155; }
+  </style>
+</head>
+<body style="background:#0b0f19; color:#f8fafc; font-family:sans-serif;">
+  <div class="hero-box">
+    <div class="hero-badge">${u.kisaBaslik} • ${u.surum}</div>
+    <h1 class="hero-title">${u.ad}</h1>
+    <p class="hero-lead">${u.altYazi}</p>
+    <div class="desc-card">${u.aciklama}</div>
+    <h3>📦 Entegre Modüller ve Yetenekler</h3>
+    <div class="mod-grid">
+      ${(u.moduller || []).map(m => `<div class="mod-item">\${m}</div>`).join("\n      ")}
+    </div>
+    <div class="cta-row">
+      <a href="${u.indirmeLinki}" class="cta-btn">⬇️ Hemen İndir</a>
+      ${u.kilavuzLinki ? `<a href="\${u.kilavuzLinki}" class="cta-btn sec">📖 Kurulum Kılavuzu</a>` : ""}
+      <a href="index.html" class="cta-btn sec">🏠 Ana Sayfaya Dön</a>
+    </div>
+  </div>
+</body>
+</html>`;
+      const blob = new Blob([htmlIcerik], { type: "text/html;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = dosyaAdi;
+      a.click();
+      durumYaz(`📄 ${dosyaAdi} başarıyla oluşturuldu ve indirildi!`, "ok");
+    }
+
+    // GITHUB API ENTEGRASYONU
+    async function githubdanCek() {
+      const repo = document.getElementById("gh_repo").value.trim();
+      const branch = document.getElementById("gh_branch").value.trim();
+      durumYaz("🔄 GitHub'dan veri çekiliyor...", "warn");
+      try {
+        const res = await fetch(`https://raw.githubusercontent.com/${repo}/${branch}/veri/site.json?t=${Date.now()}`);
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const veri = await res.json();
+        aktifVeri = Object.assign({}, VARSAYILAN_VERI, veri);
+        veridenForma();
+        durumYaz("🌐 Canlı sitedeki veriler başarıyla çekildi!", "ok");
+      } catch (e) {
+        durumYaz("⚠️ Canlı sitedeki JSON okunamadı, hazır şablon kullanılıyor.", "warn");
+      }
+    }
+
+    async function githubaGonder() {
+      const token = document.getElementById("gh_token").value.trim();
+      const repo = document.getElementById("gh_repo").value.trim();
+      const branch = document.getElementById("gh_branch").value.trim();
+
+      if (!token) {
+        sekmeAc('tab-github', document.querySelectorAll('.nav-btn')[5]);
+        durumYaz("⚠️ GitHub'a doğrudan yayınlamak için lütfen Token girin veya 'site.json İndir' butonunu kullanın.", "warn");
+        return;
+      }
+
+      durumYaz("🚀 GitHub'a kaydediliyor...", "warn");
+      const apiUrl = `https://api.github.com/repos/${repo}/contents/veri/site.json`;
+
+      try {
+        let sha = null;
+        const mevcut = await fetch(apiUrl + `?ref=${branch}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        if (mevcut.ok) {
+          const mevcutJson = await mevcut.json();
+          sha = mevcutJson.sha;
+        }
+
+        const icerikBase64 = btoa(unescape(encodeURIComponent(JSON.stringify(aktifVeri, null, 2))));
+        const yanit = await fetch(apiUrl, {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            message: "Site içeriği yönetim panelinden güncellendi (TYS & TYS_SQL)",
+            content: icerikBase64,
+            branch: branch,
+            ...(sha ? { sha } : {})
+          })
+        });
+
+        if (!yanit.ok) throw new Error("GitHub API Hatası: " + yanit.status);
+        durumYaz("✅ Başarıyla GitHub'a kaydedildi ve yayına alındı!", "ok");
+      } catch (err) {
+        durumYaz("❌ GitHub gönderim hatası: " + err.message, "err");
+      }
+    }
+
+    // Başlangıçta yerel veya varsayılan veriyi yükle
+    window.addEventListener("DOMContentLoaded", async () => {
+      const kayitliToken = localStorage.getItem("aytek_gh_token");
+      if (kayitliToken) document.getElementById("gh_token").value = kayitliToken;
+
+      try {
+        const r = await fetch("../veri/site.json");
+        if (r.ok) {
+          const j = await r.json();
+          aktifVeri = Object.assign({}, VARSAYILAN_VERI, j);
+          durumYaz("✔️ Yerel site.json başarıyla yüklendi", "ok");
+        }
+      } catch (_) {
+        durumYaz("✨ Hazır TYS & TYS_SQL şablonu aktif", "ok");
+      }
+      veridenForma();
+    });
+  </script>
 </body>
 </html>
