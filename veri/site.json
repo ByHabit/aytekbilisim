@@ -15,7 +15,7 @@
   },
   "anasayfa": {
     "baslik": "TYS Ticari Yönetim Sistemi ",
-    "altBaslik": "🚀 İşletmenizin Yeni Nesil Dijital Asistanı ile Tanışın!Teklif hazırlamak için saatlerce Excel tablolarıyla boğuştuğunuz günleri geride bırakın. Ticari Yönetim Sistemi (TYS) ile saniyeler içinde profesyonel teklifler oluşturun; cari hesaplarınızı, borç-alacak durumunuzu ve nakit akışınızı tek ekrandan zahmetsizce yönetin.   ✨ Neden TYS Kullanmalısınız?📄 Pratik Teklif & Proforma: Excel karmaşasına son verin; kurumsal logonuzla saniyeler içinde PDF teklifler ve proforma faturalar üretin.   💰 Tam Finansal Kontrol: Cari hesaplar, kasa, banka ve borç-alacak takibi her an parmaklarınızın ucunda olsun.   🔐 Gelişmiş Kullanıcı & Yetki Yönetimi: Ekibiniz için ayrı kullanıcılar tanımlayın, kimin hangi ekranlara erişebileceğini kolayca sınırlandırın.   🧩 Size Özel Sadeleştirilebilir Yapı: Karmaşık ekranlara mahkum olmayın! Kullanmadığınız modülleri tek tıkla kapatarak programı sadece kendi işinize göre kişiselleştirin.   🤖 Yapay Zeka Destekli Raporlama: Gelişmiş yapay zeka asistanı sayesinde işletmenizin verilerini analiz edin ve tek tıkla detaylı raporlar alın.   📦 Entegre Modüllerimiz:\n📌 Teklif & Proforma Fatura | 👥 Cari Hesap | 🏦 Banka & Kasa | 📦 Stok & Depo | 🛠️ Teknik Servis | 🛒 Hızlı Satış (POS) | 👨‍💼 Personel & Puantaj ",
+    "altBaslik": "🚀 İşletmenizin Yeni Nesil Dijital Asistanı ile Tanışın! \nTeklif hazırlamak için saatlerce Excel tablolarıyla boğuştuğunuz günleri geride bırakın. \nTicari Yönetim Sistemi (TYS) ile saniyeler içinde profesyonel teklifler oluşturun; \ncari hesaplarınızı, borç-alacak durumunuzu ve nakit akışınızı tek ekrandan zahmetsizce yönetin.   \n✨ Neden TYS Kullanmalısınız? \n📄 Pratik Teklif & Proforma: Excel karmaşasına son verin; kurumsal logonuzla saniyeler içinde PDF teklifler ve proforma faturalar üretin.    \n💰 Tam Finansal Kontrol: Cari hesaplar, kasa, banka ve borç-alacak takibi her an parmaklarınızın ucunda olsun.    \n🔐 Gelişmiş Kullanıcı & Yetki Yönetimi: Ekibiniz için ayrı kullanıcılar tanımlayın, kimin hangi ekranlara erişebileceğini kolayca sınırlandırın.   \n🧩 Size Özel Sadeleştirilebilir Yapı: Karmaşık ekranlara mahkum olmayın! Kullanmadığınız modülleri tek tıkla kapatarak programı sadece kendi işinize göre kişiselleştirin.   \n🤖 Yapay Zeka Destekli Raporlama: Gelişmiş yapay zeka asistanı sayesinde işletmenizin verilerini analiz edin ve tek tıkla detaylı raporlar alın.   \n📦 Entegre Modüllerimiz:\n📌 Teklif & Proforma Fatura | 👥 Cari Hesap | 🏦 Banka & Kasa | 📦 Stok & Depo | 🛠️ Teknik Servis | 🛒 Hızlı Satış (POS) | 👨‍💼 Personel & Puantaj ",
     "fisBaslik": "Gün sonu",
     "fisSatirlari": [
       {
@@ -305,8 +305,8 @@
     "icerikler": []
   },
   "_panel": {
-    "kayit": 3,
-    "zaman": "2026-10-20T16:28:36.027Z",
+    "kayit": 4,
+    "zaman": "2026-10-20T16:33:15.837Z",
     "not": "Bu bölümü panel yazar; değiştirmeyin."
   }
 }
