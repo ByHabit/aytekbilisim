@@ -14,8 +14,8 @@
     "altBilgi": "Küçük işletmeler için teklif, kasa, cari ve stok programları."
   },
   "anasayfa": {
-    "baslik": "Teklif, kasa, cari ve stok tek programda.",
-    "altBaslik": "Ticari Yönetim Sistemi, küçük işletmelerin günlük işini sadeleştirir: teklif hazırlarsınız, tahsilatı kasaya işlersiniz, cari bakiyeler ve stok kendiliğinden güncellenir.",
+    "baslik": "TYS Ticari Yönetim Sistemi ",
+    "altBaslik": "🚀 İşletmenizin Yeni Nesil Dijital Asistanı ile Tanışın! \nTeklif hazırlamak için saatlerce Excel tablolarıyla boğuştuğunuz günleri geride bırakın. \nTicari Yönetim Sistemi (TYS) ile saniyeler içinde profesyonel teklifler oluşturun; \ncari hesaplarınızı, borç-alacak durumunuzu ve nakit akışınızı tek ekrandan zahmetsizce yönetin.   \n✨ Neden TYS Kullanmalısınız? \n📄 Pratik Teklif & Proforma: Excel karmaşasına son verin; kurumsal logonuzla saniyeler içinde PDF teklifler ve proforma faturalar üretin.    \n💰 Tam Finansal Kontrol: Cari hesaplar, kasa, banka ve borç-alacak takibi her an parmaklarınızın ucunda olsun.    \n🔐 Gelişmiş Kullanıcı & Yetki Yönetimi: Ekibiniz için ayrı kullanıcılar tanımlayın, kimin hangi ekranlara erişebileceğini kolayca sınırlandırın.   \n🧩 Size Özel Sadeleştirilebilir Yapı: Karmaşık ekranlara mahkum olmayın! Kullanmadığınız modülleri tek tıkla kapatarak programı sadece kendi işinize göre kişiselleştirin.   \n🤖 Yapay Zeka Destekli Raporlama: Gelişmiş yapay zeka asistanı sayesinde işletmenizin verilerini analiz edin ve tek tıkla detaylı raporlar alın.   \n📦 Entegre Modüllerimiz:\n📌 Teklif & Proforma Fatura | 👥 Cari Hesap | 🏦 Banka & Kasa | 📦 Stok & Depo | 🛠️ Teknik Servis | 🛒 Hızlı Satış (POS) | 👨‍💼 Personel & Puantaj ",
     "fisBaslik": "Gün sonu",
     "fisSatirlari": [
       {
@@ -183,7 +183,24 @@
           "cevap": "Program her gün kendiliğinden yedek alır. Yedekleri istediğiniz klasöre ya da bir USB belleğe de alabilirsiniz."
         }
       ],
-      "gorseller": [],
+      "gorseller": [
+        {
+          "dosya": "assets/yuklemeler/1792514156095-ana-ekran.webp",
+          "aciklama": "ANA EKRAN ( DASHBOARD)"
+        },
+        {
+          "dosya": "assets/yuklemeler/1792514149346-ayarlar-firma-bilgileri.webp",
+          "aciklama": "Firma Bilgileriniz logonuz ve banka bilgileriniz ( Girdiğiniz bilgiler hazırlanan tekliflere eklenir."
+        },
+        {
+          "dosya": "assets/yuklemeler/1792514136970-cari-kart.webp",
+          "aciklama": "Firma Bilgilerinizi ve logonuzu girdiğinizde Cari kart görüntüle dediğinizde Firmanızın Kartvizit'ini oluşturur."
+        },
+        {
+          "dosya": "assets/yuklemeler/1792514129410-teklif-tasarimi.webp",
+          "aciklama": "Hazırlayacağınız Tekliflerin tasarımı için tasarım işlevsael ve basit editörü mevcuttur."
+        }
+      ],
       "videolar": []
     },
     {
@@ -267,8 +284,8 @@
       "urun": "tys",
       "ad": "TYS kurulum dosyası",
       "aciklama": "Tek bilgisayar için kurulum dosyası.",
-      "surum": "",
-      "url": "",
+      "surum": "4.14.2",
+      "url": "https://github.com/ByHabit/TYP/releases/latest/download/TYS_Kurulum.exe",
       "tur": "kurulum"
     }
   ],
@@ -285,5 +302,28 @@
         "TYS'den veri aktarma sihirbazı"
       ]
     }
-  ]
+  ],
+  "egitim": {
+    "baslik": "Eğitim merkezi",
+    "aciklama": "Kurulum ve kullanım anlatımları: videolar ve adım adım ekran görüntüleri.",
+    "kategoriler": [
+      "Kurulum",
+      "Başlarken",
+      "Teklif ve proforma",
+      "Cari hesaplar",
+      "Kasa ve gün sonu",
+      "Banka",
+      "Stok ve depo",
+      "Teknik servis",
+      "Personel",
+      "Hızlı satış",
+      "Ayarlar ve yedekleme"
+    ],
+    "icerikler": []
+  },
+  "_panel": {
+    "kayit": 7,
+    "zaman": "2026-10-21T18:27:44.600Z",
+    "not": "Bu bölümü panel yazar; değiştirmeyin."
+  }
 }
