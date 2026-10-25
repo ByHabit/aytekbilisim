@@ -284,7 +284,7 @@
       "urun": "tys",
       "ad": "TYS kurulum dosyası",
       "aciklama": "Tek bilgisayar için kurulum dosyası.",
-      "surum": "4.14.3",
+      "surum": "4.15.0",
       "url": "https://github.com/ByHabit/TYP/releases/latest/download/TYS_Kurulum.exe",
       "tur": "kurulum"
     }
@@ -322,8 +322,8 @@
     "icerikler": []
   },
   "_panel": {
-    "kayit": 8,
-    "zaman": "2026-10-22T13:17:07.073Z",
+    "kayit": 9,
+    "zaman": "2026-10-25T19:38:10.584Z",
     "not": "Bu bölümü panel yazar; değiştirmeyin."
   }
 }
